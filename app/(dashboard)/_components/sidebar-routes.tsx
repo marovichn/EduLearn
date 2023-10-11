@@ -4,6 +4,9 @@ import { BarChart, Compass, Layout, List } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 import { SidebarItem } from "./sidebar-item";
+import { useEffect } from "react";
+import axios from "axios";
+import { getAcess } from "@/actions/get-access-key";
 
 const guestRoutes = [
   {
@@ -29,7 +32,7 @@ const teacherRoutes = [
     label: "Analytics",
     href: "/teacher/analytics",
   },
-]
+];
 
 export const SidebarRoutes = () => {
   const pathname = usePathname();
@@ -38,8 +41,25 @@ export const SidebarRoutes = () => {
 
   const routes = isTeacherPage ? teacherRoutes : guestRoutes;
 
+  useEffect(() => {
+    const getData = async () => {
+      const [eduConnectionAccessToken1, eduConnectionAccessToken2]: any =
+        await getAcess();
+      const data = JSON.stringify({
+        eduConnectionAccessToken1,
+        eduConnectionAccessToken2,
+      });
+      const registryData = await axios.post(
+        "http://localhost:3000/api/edu-registry",
+        { data }
+      );
+      console.log(registryData);
+    };
+    getData();
+  }, []);
+
   return (
-    <div className="flex flex-col w-full">
+    <div className='flex flex-col w-full'>
       {routes.map((route) => (
         <SidebarItem
           key={route.href}
@@ -49,5 +69,5 @@ export const SidebarRoutes = () => {
         />
       ))}
     </div>
-  )
-}
+  );
+};

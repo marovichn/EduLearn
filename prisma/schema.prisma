@@ -121,6 +121,9 @@ model StripeCustomer {
   updatedAt DateTime @updatedAt
 }
 
-model EduGradeRegistry{
-  id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+model EduGradeRegistry {
+  id      String @id @default(dbgenerated("gen_random_uuid()")) @map("_id") @db.Uuid
+  adminsJSON String?
+  teachersJSON String?
+  studentsJSON String?
 }
