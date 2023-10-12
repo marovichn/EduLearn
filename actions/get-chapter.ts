@@ -1,4 +1,4 @@
-import { db } from "@/prisma/db";
+import { db } from "@/lib/db";
 import { Attachment, Chapter } from "@prisma/client";
 
 interface GetChapterProps {
