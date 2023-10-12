@@ -1,35 +1,21 @@
-import { PrismaClient } from "@prisma/client";
-/* 
-declare global {
-  var prisma1: PrismaClient | undefined;
-  var prisma2: PrismaClient | undefined;
-}
- */
-export const db =
-  /* 
-  globalThis.prisma1 || */
-  new PrismaClient({
-    datasources: {
-      db: {
-        url: process.env.DATABASE_URL,
-      },
-    },
-  });
+// Import Prisma clients
+import { PrismaClient as PrismaClient1 } from "../prisma/generated/client1";
+import { PrismaClient as PrismaClient2 } from "../prisma2/generated/client2";
 
-export const gradedb =
-  /* 
-  globalThis.prisma2 || */
-  new PrismaClient({
-    datasources: {
-      db: {
-        url: process.env.MONGODB_URI,
-      },
+// Initialize Prisma clients
+const db = new PrismaClient1({
+  datasources: {
+    db: {
+      url: process.env.DATABASE_URL,
     },
-  });
-/* 
-if (process.env.NODE_ENV !== "production") {
-  globalThis.prisma1 = db;
-  globalThis.prisma2 = gradedb;
-} */
+  },
+});
+const gradedb = new PrismaClient2({
+  datasources: {
+    db: {
+      url: process.env.MONGODB_URI,
+    },
+  },
+});
 
-export default { db, gradedb };
+export { db, gradedb };

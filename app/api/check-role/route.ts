@@ -12,7 +12,7 @@ export async function POST(req: Request) {
     if (!userId) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
-    /*
+    /* 
     const teacher = await gradedb.teacher.findFirst({
       where: { email: email },
     });
