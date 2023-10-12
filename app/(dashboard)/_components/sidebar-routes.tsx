@@ -39,6 +39,13 @@ export const SidebarRoutes = () => {
 
   const isTeacherPage = pathname?.includes("/teacher");
 
+  useEffect(() => {
+    const check = async () => {
+      await axios.get("/api/check-role");
+    };
+    check();
+  }, []);
+
   const routes = isTeacherPage ? teacherRoutes : guestRoutes;
 
   return (
