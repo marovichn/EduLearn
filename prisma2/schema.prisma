@@ -1,0 +1,160 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGODB_URI")
+}
+
+
+
+model Admin {
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  name            String?
+  lastname        String?
+  email           String?   @unique
+  emailVerified   DateTime?
+  image           String?
+  hashedPassword  String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  role            String?
+  code            String? @unique
+}
+
+
+model Teacher {
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  name            String?
+  lastname        String?
+  email           String?   @unique
+  emailVerified   DateTime?
+  image           String?
+  hashedPassword  String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  role            String?
+  biography     String?
+  degrees       String?
+  experience    String?
+  code          String? @unique
+
+  groups Group[]
+}
+
+
+model Student {
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  name            String?
+  lastname        String?
+  adress          String?
+  parentName      String?
+  parentEmail     String?
+  parentPhone     String?
+  email           String?   @unique
+  emailVerified   DateTime?
+  image           String?
+  hashedPassword  String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  role            String?
+  biography       String?
+  code            String? @unique
+  points          String?
+
+  groups Group[]
+}
+
+
+model Group {
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+
+  name            String
+  description     String
+  createdAt       DateTime @default(now())
+  ends            DateTime?
+  t               String?
+  b               String?
+
+  results         Result[]
+  attendances     Attendance[]
+  assignments     Assignment[]
+  activityGrades  Activity[]
+
+  teacher Teacher?  @relation(fields: [teacherId], references: [id])
+  teacherId String? @db.ObjectId
+
+  subject Subject @relation(fields: [subjectId], references: [id])
+  subjectId String @db.ObjectId
+
+  student Student @relation(fields: [studentId], references: [id])
+  studentId String @db.ObjectId
+}
+
+
+model Result{
+id              String @id @default(auto()) @map("_id") @db.ObjectId
+type            String
+value           String
+description     String?
+date            DateTime? @default(now())
+t               String?
+
+group           Group  @relation(fields: [groupId], references: [id])
+groupId         String @db.ObjectId
+}
+
+
+model Activity{
+id              String @id @default(auto()) @map("_id") @db.ObjectId
+type            String
+value           String
+description     String?
+date            DateTime? @default(now())
+t               String?
+
+group           Group  @relation(fields: [groupId], references: [id])
+groupId         String @db.ObjectId
+}
+
+
+model Attendance{
+id              String @id @default(auto()) @map("_id") @db.ObjectId
+type            String
+description     String?
+date            DateTime?
+numberOfClasses Int
+classes         String[]
+t               String?
+
+group           Group  @relation(fields: [groupId], references: [id])
+groupId         String @db.ObjectId
+}
+
+
+model Assignment{
+id              String @id @default(auto()) @map("_id") @db.ObjectId
+type            String
+points          String
+description     String?
+dateStart       DateTime @default(now())
+dateDue         DateTime?
+done            Boolean?
+t               String?
+
+group           Group  @relation(fields: [groupId], references: [id])
+groupId         String @db.ObjectId
+}
+
+model Subject{
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  description String?
+  color        String?
+
+  groups  Group[]
+}

@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { SidebarItem } from "./sidebar-item";
 import { useEffect } from "react";
 import axios from "axios";
+import { useUser } from "@clerk/nextjs";
 
 const guestRoutes = [
   {

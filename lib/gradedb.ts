@@ -4,14 +4,14 @@ declare global {
   var prisma: PrismaClient | undefined;
 }
 
-export const db =
+export const gradedb =
   globalThis.prisma ||
   new PrismaClient({
     datasources: {
       db: {
-        url: process.env.DATABASE_URL,
+        url: process.env.MONGODB_URI,
       },
     },
   });
 
-if (process.env.NODE_ENV !== "production") globalThis.prisma = db;
+if (process.env.NODE_ENV !== "production") globalThis.prisma = gradedb;
