@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Eye, LayoutDashboard, Video } from "lucide-react";
 
-import { db } from "@/lib/db";
+import { db } from "@/prisma/db";
 import { IconBadge } from "@/components/icon-badge";
 import { Banner } from "@/components/banner";
 

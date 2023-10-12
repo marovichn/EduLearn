@@ -1,4 +1,4 @@
-import { db } from "@/lib/db";
+import { db } from "@/prisma/db";
 
 export const getProgress = async (
   userId: string,

@@ -1,4 +1,4 @@
-import { db } from "@/lib/db";
+import { db } from "@/prisma/db";
 import { redirect } from "next/navigation";
 
 const CourseIdPage = async ({
