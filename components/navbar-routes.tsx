@@ -21,29 +21,37 @@ export const NavbarRoutes = () => {
   return (
     <>
       {isSearchPage && (
-        <div className="hidden md:block">
+        <div className='hidden md:block'>
           <SearchInput />
         </div>
       )}
-      <div className="flex gap-x-2 ml-auto ">
+      <div className='flex gap-x-2 ml-auto '>
         {isTeacherPage || isCoursePage ? (
-          <Link href="/">
-            <Button size="sm" variant="ghost">
-              <LogOut className="h-4 w-4 mr-2" />
+          <Link href='/'>
+            <Button
+              size='sm'
+              variant='ghost'
+              className='text-white hover:text-black mr-3 border-[1px] border-white border-dashed'
+            >
+              <LogOut className='h-4 w-4 mr-2' />
               Exit
             </Button>
           </Link>
         ) : isTeacher(userId) ? (
-          <Link href="/teacher/courses">
-            <Button size="sm" variant="ghost">
+          <Link href='/teacher/courses'>
+            <Button
+              size='sm'
+              variant='ghost'
+              className='text-white hover:text-black mr-3 border-[1px] border-white'
+            >
               Teacher mode
             </Button>
           </Link>
         ) : null}
-        <UserButton
-          afterSignOutUrl="/"
-        />
+        <div className='mt-[2px]'>
+          <UserButton afterSignOutUrl='/' />
+        </div>
       </div>
     </>
-  )
-}
+  );
+};
