@@ -2,7 +2,9 @@
 
 import { Button } from "@/components/ui/button";
 import axios from "axios";
+import { CheckCheck } from "lucide-react";
 import { FC, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { MdCastForEducation } from "react-icons/md";
 
 interface AssignmentProps {
@@ -12,20 +14,38 @@ interface AssignmentProps {
 const Assignment: FC<AssignmentProps> = ({ chapterId }) => {
   const [role, setRole] = useState("BASIC");
   const [isAssigned, setIsAssigned] = useState(false);
+  const [done, setDone] = useState(false);
   useEffect(() => {
-    axios
-      .get("/api/check-role")
-      .then((role: any) => setRole(role.data.role))
-      .then(() => console.log(role));
+    axios.get("/api/check-role").then((role: any) => setRole(role.data.role));
 
-    axios
-      .post("/api/is-assigned", { chapterId })
-      .then((isAssigned: any) => setIsAssigned(isAssigned.data))
-      .then(() => console.log(isAssigned));
+    axios.post("/api/is-assigned", { chapterId }).then((isAssigned: any) => {
+      setIsAssigned(isAssigned.data);
+      if (isAssigned.data) {
+        axios
+          .post("/api/is-done", { chapterId })
+          .then((done: any) => setDone(done.data));
+      }
+    });
   }, []);
 
-  const handleAdding = () => {};
-  const handleFinishing = () => {};
+  const handleAdding = async () => {
+    axios
+      .post("/api/add-assignment", { chapterId })
+      .catch((err) => toast.error(err.message));
+  };
+  const handleFinishing = async () => {
+    axios
+      .post("/api/finish-assignment", { chapterId })
+      .catch((err) => toast.error(err.message));
+  };
+
+  let action = !done ? (
+    <Button onClick={handleFinishing}>Mark as finished</Button>
+  ) : (
+    <Button>
+      Finished <CheckCheck />
+    </Button>
+  );
 
   return (
     <>
@@ -51,7 +71,7 @@ const Assignment: FC<AssignmentProps> = ({ chapterId }) => {
               Mark this lesson as an assignment
             </Button>
           ) : (
-            <Button onClick={handleFinishing}>Mark as finished</Button>
+            action
           )}
         </div>
       ) : null}
