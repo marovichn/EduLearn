@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { CheckCheck } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { FC, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { MdCastForEducation } from "react-icons/md";
@@ -12,6 +13,7 @@ interface AssignmentProps {
 }
 
 const Assignment: FC<AssignmentProps> = ({ chapterId }) => {
+  const [loading, setLoading] = useState(false);
   const [role, setRole] = useState("BASIC");
   const [isAssigned, setIsAssigned] = useState(false);
   const [done, setDone] = useState(false);
@@ -23,26 +25,48 @@ const Assignment: FC<AssignmentProps> = ({ chapterId }) => {
       if (isAssigned.data) {
         axios
           .post("/api/is-done", { chapterId })
-          .then((done: any) => setDone(done.data));
+          .then((done: any) => setDone(done.data))
+          .catch((err) => console.log(err));
       }
     });
   }, []);
 
   const handleAdding = async () => {
+    setLoading(true);
     axios
       .post("/api/add-assignment", { chapterId })
+      .then(() => {
+        setLoading(false);
+
+        location.reload();
+
+        toast.success("Assignment added!");
+      })
       .catch((err) => toast.error(err.message));
   };
   const handleFinishing = async () => {
+    setLoading(true);
     axios
       .post("/api/finish-assignment", { chapterId })
+      .then(() => {
+        setLoading(false);
+
+        location.reload();
+
+        toast.success("Assignment finsihed!");
+      })
       .catch((err) => toast.error(err.message));
   };
 
   let action = !done ? (
-    <Button onClick={handleFinishing}>Mark as finished</Button>
+    <Button disabled={loading} onClick={handleFinishing}>
+      Mark as finished
+    </Button>
   ) : (
-    <Button>
+    <Button
+      className='bg-green-500 hover:bg-green-500 flex items-center justify-center gap-x-3 cursor-default'
+      disabled={loading}
+    >
       Finished <CheckCheck />
     </Button>
   );
@@ -67,7 +91,7 @@ const Assignment: FC<AssignmentProps> = ({ chapterId }) => {
             <span className='font-semibold'>(10 points)</span>.
           </p>
           {!isAssigned ? (
-            <Button onClick={handleAdding}>
+            <Button disabled={loading} onClick={handleAdding}>
               Mark this lesson as an assignment
             </Button>
           ) : (

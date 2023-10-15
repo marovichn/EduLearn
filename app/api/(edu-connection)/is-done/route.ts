@@ -29,6 +29,10 @@ export async function POST(req: Request) {
     }
 
     const chapterAssignmentDone = assignedChapterGroup.assignments[0].done;
+    
+    if(!chapterAssignmentDone){
+       return new NextResponse("No data", { status: 400 });
+    }
 
     return NextResponse.json(chapterAssignmentDone);
   } catch (error) {

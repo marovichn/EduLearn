@@ -7,7 +7,7 @@ import { CourseProgress } from "@/components/course-progress";
 
 import { CourseSidebarItem } from "./course-sidebar-item";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Search } from "lucide-react";
 
 interface CourseSidebarProps {
   course: Course & {
@@ -39,9 +39,13 @@ export const CourseSidebar = async ({
 
   return (
     <div className='h-full border-r flex flex-col overflow-y-auto shadow-sm'>
-      <div className='p-8 flex border-b'>
-        <Link href='/search' className="mr-4">
-          <ArrowLeft />
+      <div className='p-[27px] flex border-b'>
+        <Link
+          href='/search'
+          className='mr-4 flex bg-white text-black  border-[1px] border-black border-dashed rounded-lg p-2 hover:bg-gray-100 transition -my-[9.5px]'
+        >
+          <ArrowLeft size={14} />
+          <Search />
         </Link>
         <h1 className='font-semibold overflow-hidden'>{course.title}</h1>
         {purchase && (

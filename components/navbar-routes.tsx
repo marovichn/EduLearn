@@ -31,7 +31,7 @@ export const NavbarRoutes = () => {
             <Button
               size='sm'
               variant='ghost'
-              className='text-white hover:text-black mr-3 border-[1px] border-white border-dashed'
+              className='bg-white text-black mr-3 border-[1px] border-black border-dashed'
             >
               <LogOut className='h-4 w-4 mr-2' />
               Exit
