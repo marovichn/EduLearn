@@ -4940,6 +4940,7 @@ export namespace Prisma {
     ends: Date | null
     t: string | null
     b: string | null
+    chapterId: string | null
     teacherId: string | null
     subjectId: string | null
     studentId: string | null
@@ -4953,6 +4954,7 @@ export namespace Prisma {
     ends: Date | null
     t: string | null
     b: string | null
+    chapterId: string | null
     teacherId: string | null
     subjectId: string | null
     studentId: string | null
@@ -4966,6 +4968,7 @@ export namespace Prisma {
     ends: number
     t: number
     b: number
+    chapterId: number
     teacherId: number
     subjectId: number
     studentId: number
@@ -4981,6 +4984,7 @@ export namespace Prisma {
     ends?: true
     t?: true
     b?: true
+    chapterId?: true
     teacherId?: true
     subjectId?: true
     studentId?: true
@@ -4994,6 +4998,7 @@ export namespace Prisma {
     ends?: true
     t?: true
     b?: true
+    chapterId?: true
     teacherId?: true
     subjectId?: true
     studentId?: true
@@ -5007,6 +5012,7 @@ export namespace Prisma {
     ends?: true
     t?: true
     b?: true
+    chapterId?: true
     teacherId?: true
     subjectId?: true
     studentId?: true
@@ -5093,6 +5099,7 @@ export namespace Prisma {
     ends: Date | null
     t: string | null
     b: string | null
+    chapterId: string | null
     teacherId: string | null
     subjectId: string
     studentId: string
@@ -5123,6 +5130,7 @@ export namespace Prisma {
     ends?: boolean
     t?: boolean
     b?: boolean
+    chapterId?: boolean
     teacherId?: boolean
     subjectId?: boolean
     studentId?: boolean
@@ -5144,6 +5152,7 @@ export namespace Prisma {
     ends?: boolean
     t?: boolean
     b?: boolean
+    chapterId?: boolean
     teacherId?: boolean
     subjectId?: boolean
     studentId?: boolean
@@ -5180,6 +5189,7 @@ export namespace Prisma {
       ends: Date | null
       t: string | null
       b: string | null
+      chapterId: string | null
       teacherId: string | null
       subjectId: string
       studentId: string
@@ -5624,6 +5634,7 @@ export namespace Prisma {
     readonly ends: FieldRef<"Group", 'DateTime'>
     readonly t: FieldRef<"Group", 'String'>
     readonly b: FieldRef<"Group", 'String'>
+    readonly chapterId: FieldRef<"Group", 'String'>
     readonly teacherId: FieldRef<"Group", 'String'>
     readonly subjectId: FieldRef<"Group", 'String'>
     readonly studentId: FieldRef<"Group", 'String'>
@@ -11188,6 +11199,7 @@ export namespace Prisma {
     ends: 'ends',
     t: 't',
     b: 'b',
+    chapterId: 'chapterId',
     teacherId: 'teacherId',
     subjectId: 'subjectId',
     studentId: 'studentId'
@@ -11656,6 +11668,7 @@ export namespace Prisma {
     ends?: DateTimeNullableFilter<"Group"> | Date | string | null
     t?: StringNullableFilter<"Group"> | string | null
     b?: StringNullableFilter<"Group"> | string | null
+    chapterId?: StringNullableFilter<"Group"> | string | null
     teacherId?: StringNullableFilter<"Group"> | string | null
     subjectId?: StringFilter<"Group"> | string
     studentId?: StringFilter<"Group"> | string
@@ -11676,6 +11689,7 @@ export namespace Prisma {
     ends?: SortOrder
     t?: SortOrder
     b?: SortOrder
+    chapterId?: SortOrder
     teacherId?: SortOrder
     subjectId?: SortOrder
     studentId?: SortOrder
@@ -11690,6 +11704,7 @@ export namespace Prisma {
 
   export type GroupWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    chapterId?: string
     AND?: GroupWhereInput | GroupWhereInput[]
     OR?: GroupWhereInput[]
     NOT?: GroupWhereInput | GroupWhereInput[]
@@ -11709,7 +11724,7 @@ export namespace Prisma {
     teacher?: XOR<TeacherNullableRelationFilter, TeacherWhereInput> | null
     subject?: XOR<SubjectRelationFilter, SubjectWhereInput>
     student?: XOR<StudentRelationFilter, StudentWhereInput>
-  }, "id">
+  }, "id" | "chapterId">
 
   export type GroupOrderByWithAggregationInput = {
     id?: SortOrder
@@ -11719,6 +11734,7 @@ export namespace Prisma {
     ends?: SortOrder
     t?: SortOrder
     b?: SortOrder
+    chapterId?: SortOrder
     teacherId?: SortOrder
     subjectId?: SortOrder
     studentId?: SortOrder
@@ -11738,6 +11754,7 @@ export namespace Prisma {
     ends?: DateTimeNullableWithAggregatesFilter<"Group"> | Date | string | null
     t?: StringNullableWithAggregatesFilter<"Group"> | string | null
     b?: StringNullableWithAggregatesFilter<"Group"> | string | null
+    chapterId?: StringNullableWithAggregatesFilter<"Group"> | string | null
     teacherId?: StringNullableWithAggregatesFilter<"Group"> | string | null
     subjectId?: StringWithAggregatesFilter<"Group"> | string
     studentId?: StringWithAggregatesFilter<"Group"> | string
@@ -12431,6 +12448,7 @@ export namespace Prisma {
     ends?: Date | string | null
     t?: string | null
     b?: string | null
+    chapterId?: string | null
     results?: ResultCreateNestedManyWithoutGroupInput
     attendances?: AttendanceCreateNestedManyWithoutGroupInput
     assignments?: AssignmentCreateNestedManyWithoutGroupInput
@@ -12448,6 +12466,7 @@ export namespace Prisma {
     ends?: Date | string | null
     t?: string | null
     b?: string | null
+    chapterId?: string | null
     teacherId?: string | null
     subjectId: string
     studentId: string
@@ -12464,6 +12483,7 @@ export namespace Prisma {
     ends?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
     b?: NullableStringFieldUpdateOperationsInput | string | null
+    chapterId?: NullableStringFieldUpdateOperationsInput | string | null
     results?: ResultUpdateManyWithoutGroupNestedInput
     attendances?: AttendanceUpdateManyWithoutGroupNestedInput
     assignments?: AssignmentUpdateManyWithoutGroupNestedInput
@@ -12480,6 +12500,7 @@ export namespace Prisma {
     ends?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
     b?: NullableStringFieldUpdateOperationsInput | string | null
+    chapterId?: NullableStringFieldUpdateOperationsInput | string | null
     teacherId?: NullableStringFieldUpdateOperationsInput | string | null
     subjectId?: StringFieldUpdateOperationsInput | string
     studentId?: StringFieldUpdateOperationsInput | string
@@ -12497,6 +12518,7 @@ export namespace Prisma {
     ends?: Date | string | null
     t?: string | null
     b?: string | null
+    chapterId?: string | null
     teacherId?: string | null
     subjectId: string
     studentId: string
@@ -12509,6 +12531,7 @@ export namespace Prisma {
     ends?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
     b?: NullableStringFieldUpdateOperationsInput | string | null
+    chapterId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type GroupUncheckedUpdateManyInput = {
@@ -12518,6 +12541,7 @@ export namespace Prisma {
     ends?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
     b?: NullableStringFieldUpdateOperationsInput | string | null
+    chapterId?: NullableStringFieldUpdateOperationsInput | string | null
     teacherId?: NullableStringFieldUpdateOperationsInput | string | null
     subjectId?: StringFieldUpdateOperationsInput | string
     studentId?: StringFieldUpdateOperationsInput | string
@@ -13199,6 +13223,7 @@ export namespace Prisma {
     ends?: SortOrder
     t?: SortOrder
     b?: SortOrder
+    chapterId?: SortOrder
     teacherId?: SortOrder
     subjectId?: SortOrder
     studentId?: SortOrder
@@ -13212,6 +13237,7 @@ export namespace Prisma {
     ends?: SortOrder
     t?: SortOrder
     b?: SortOrder
+    chapterId?: SortOrder
     teacherId?: SortOrder
     subjectId?: SortOrder
     studentId?: SortOrder
@@ -13225,6 +13251,7 @@ export namespace Prisma {
     ends?: SortOrder
     t?: SortOrder
     b?: SortOrder
+    chapterId?: SortOrder
     teacherId?: SortOrder
     subjectId?: SortOrder
     studentId?: SortOrder
@@ -14064,6 +14091,7 @@ export namespace Prisma {
     ends?: Date | string | null
     t?: string | null
     b?: string | null
+    chapterId?: string | null
     results?: ResultCreateNestedManyWithoutGroupInput
     attendances?: AttendanceCreateNestedManyWithoutGroupInput
     assignments?: AssignmentCreateNestedManyWithoutGroupInput
@@ -14080,6 +14108,7 @@ export namespace Prisma {
     ends?: Date | string | null
     t?: string | null
     b?: string | null
+    chapterId?: string | null
     subjectId: string
     studentId: string
     results?: ResultUncheckedCreateNestedManyWithoutGroupInput
@@ -14124,6 +14153,7 @@ export namespace Prisma {
     ends?: DateTimeNullableFilter<"Group"> | Date | string | null
     t?: StringNullableFilter<"Group"> | string | null
     b?: StringNullableFilter<"Group"> | string | null
+    chapterId?: StringNullableFilter<"Group"> | string | null
     teacherId?: StringNullableFilter<"Group"> | string | null
     subjectId?: StringFilter<"Group"> | string
     studentId?: StringFilter<"Group"> | string
@@ -14137,6 +14167,7 @@ export namespace Prisma {
     ends?: Date | string | null
     t?: string | null
     b?: string | null
+    chapterId?: string | null
     results?: ResultCreateNestedManyWithoutGroupInput
     attendances?: AttendanceCreateNestedManyWithoutGroupInput
     assignments?: AssignmentCreateNestedManyWithoutGroupInput
@@ -14153,6 +14184,7 @@ export namespace Prisma {
     ends?: Date | string | null
     t?: string | null
     b?: string | null
+    chapterId?: string | null
     teacherId?: string | null
     subjectId: string
     results?: ResultUncheckedCreateNestedManyWithoutGroupInput
@@ -14645,6 +14677,7 @@ export namespace Prisma {
     ends?: Date | string | null
     t?: string | null
     b?: string | null
+    chapterId?: string | null
     attendances?: AttendanceCreateNestedManyWithoutGroupInput
     assignments?: AssignmentCreateNestedManyWithoutGroupInput
     activityGrades?: ActivityCreateNestedManyWithoutGroupInput
@@ -14661,6 +14694,7 @@ export namespace Prisma {
     ends?: Date | string | null
     t?: string | null
     b?: string | null
+    chapterId?: string | null
     teacherId?: string | null
     subjectId: string
     studentId: string
@@ -14692,6 +14726,7 @@ export namespace Prisma {
     ends?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
     b?: NullableStringFieldUpdateOperationsInput | string | null
+    chapterId?: NullableStringFieldUpdateOperationsInput | string | null
     attendances?: AttendanceUpdateManyWithoutGroupNestedInput
     assignments?: AssignmentUpdateManyWithoutGroupNestedInput
     activityGrades?: ActivityUpdateManyWithoutGroupNestedInput
@@ -14707,6 +14742,7 @@ export namespace Prisma {
     ends?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
     b?: NullableStringFieldUpdateOperationsInput | string | null
+    chapterId?: NullableStringFieldUpdateOperationsInput | string | null
     teacherId?: NullableStringFieldUpdateOperationsInput | string | null
     subjectId?: StringFieldUpdateOperationsInput | string
     studentId?: StringFieldUpdateOperationsInput | string
@@ -14723,6 +14759,7 @@ export namespace Prisma {
     ends?: Date | string | null
     t?: string | null
     b?: string | null
+    chapterId?: string | null
     results?: ResultCreateNestedManyWithoutGroupInput
     attendances?: AttendanceCreateNestedManyWithoutGroupInput
     assignments?: AssignmentCreateNestedManyWithoutGroupInput
@@ -14739,6 +14776,7 @@ export namespace Prisma {
     ends?: Date | string | null
     t?: string | null
     b?: string | null
+    chapterId?: string | null
     teacherId?: string | null
     subjectId: string
     studentId: string
@@ -14770,6 +14808,7 @@ export namespace Prisma {
     ends?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
     b?: NullableStringFieldUpdateOperationsInput | string | null
+    chapterId?: NullableStringFieldUpdateOperationsInput | string | null
     results?: ResultUpdateManyWithoutGroupNestedInput
     attendances?: AttendanceUpdateManyWithoutGroupNestedInput
     assignments?: AssignmentUpdateManyWithoutGroupNestedInput
@@ -14785,6 +14824,7 @@ export namespace Prisma {
     ends?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
     b?: NullableStringFieldUpdateOperationsInput | string | null
+    chapterId?: NullableStringFieldUpdateOperationsInput | string | null
     teacherId?: NullableStringFieldUpdateOperationsInput | string | null
     subjectId?: StringFieldUpdateOperationsInput | string
     studentId?: StringFieldUpdateOperationsInput | string
@@ -14801,6 +14841,7 @@ export namespace Prisma {
     ends?: Date | string | null
     t?: string | null
     b?: string | null
+    chapterId?: string | null
     results?: ResultCreateNestedManyWithoutGroupInput
     assignments?: AssignmentCreateNestedManyWithoutGroupInput
     activityGrades?: ActivityCreateNestedManyWithoutGroupInput
@@ -14817,6 +14858,7 @@ export namespace Prisma {
     ends?: Date | string | null
     t?: string | null
     b?: string | null
+    chapterId?: string | null
     teacherId?: string | null
     subjectId: string
     studentId: string
@@ -14848,6 +14890,7 @@ export namespace Prisma {
     ends?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
     b?: NullableStringFieldUpdateOperationsInput | string | null
+    chapterId?: NullableStringFieldUpdateOperationsInput | string | null
     results?: ResultUpdateManyWithoutGroupNestedInput
     assignments?: AssignmentUpdateManyWithoutGroupNestedInput
     activityGrades?: ActivityUpdateManyWithoutGroupNestedInput
@@ -14863,6 +14906,7 @@ export namespace Prisma {
     ends?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
     b?: NullableStringFieldUpdateOperationsInput | string | null
+    chapterId?: NullableStringFieldUpdateOperationsInput | string | null
     teacherId?: NullableStringFieldUpdateOperationsInput | string | null
     subjectId?: StringFieldUpdateOperationsInput | string
     studentId?: StringFieldUpdateOperationsInput | string
@@ -14879,6 +14923,7 @@ export namespace Prisma {
     ends?: Date | string | null
     t?: string | null
     b?: string | null
+    chapterId?: string | null
     results?: ResultCreateNestedManyWithoutGroupInput
     attendances?: AttendanceCreateNestedManyWithoutGroupInput
     activityGrades?: ActivityCreateNestedManyWithoutGroupInput
@@ -14895,6 +14940,7 @@ export namespace Prisma {
     ends?: Date | string | null
     t?: string | null
     b?: string | null
+    chapterId?: string | null
     teacherId?: string | null
     subjectId: string
     studentId: string
@@ -14926,6 +14972,7 @@ export namespace Prisma {
     ends?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
     b?: NullableStringFieldUpdateOperationsInput | string | null
+    chapterId?: NullableStringFieldUpdateOperationsInput | string | null
     results?: ResultUpdateManyWithoutGroupNestedInput
     attendances?: AttendanceUpdateManyWithoutGroupNestedInput
     activityGrades?: ActivityUpdateManyWithoutGroupNestedInput
@@ -14941,6 +14988,7 @@ export namespace Prisma {
     ends?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
     b?: NullableStringFieldUpdateOperationsInput | string | null
+    chapterId?: NullableStringFieldUpdateOperationsInput | string | null
     teacherId?: NullableStringFieldUpdateOperationsInput | string | null
     subjectId?: StringFieldUpdateOperationsInput | string
     studentId?: StringFieldUpdateOperationsInput | string
@@ -14957,6 +15005,7 @@ export namespace Prisma {
     ends?: Date | string | null
     t?: string | null
     b?: string | null
+    chapterId?: string | null
     results?: ResultCreateNestedManyWithoutGroupInput
     attendances?: AttendanceCreateNestedManyWithoutGroupInput
     assignments?: AssignmentCreateNestedManyWithoutGroupInput
@@ -14973,6 +15022,7 @@ export namespace Prisma {
     ends?: Date | string | null
     t?: string | null
     b?: string | null
+    chapterId?: string | null
     teacherId?: string | null
     studentId: string
     results?: ResultUncheckedCreateNestedManyWithoutGroupInput
@@ -15014,6 +15064,7 @@ export namespace Prisma {
     ends?: Date | string | null
     t?: string | null
     b?: string | null
+    chapterId?: string | null
     subjectId: string
     studentId: string
   }
@@ -15025,6 +15076,7 @@ export namespace Prisma {
     ends?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
     b?: NullableStringFieldUpdateOperationsInput | string | null
+    chapterId?: NullableStringFieldUpdateOperationsInput | string | null
     results?: ResultUpdateManyWithoutGroupNestedInput
     attendances?: AttendanceUpdateManyWithoutGroupNestedInput
     assignments?: AssignmentUpdateManyWithoutGroupNestedInput
@@ -15040,6 +15092,7 @@ export namespace Prisma {
     ends?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
     b?: NullableStringFieldUpdateOperationsInput | string | null
+    chapterId?: NullableStringFieldUpdateOperationsInput | string | null
     subjectId?: StringFieldUpdateOperationsInput | string
     studentId?: StringFieldUpdateOperationsInput | string
     results?: ResultUncheckedUpdateManyWithoutGroupNestedInput
@@ -15055,6 +15108,7 @@ export namespace Prisma {
     ends?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
     b?: NullableStringFieldUpdateOperationsInput | string | null
+    chapterId?: NullableStringFieldUpdateOperationsInput | string | null
     subjectId?: StringFieldUpdateOperationsInput | string
     studentId?: StringFieldUpdateOperationsInput | string
   }
@@ -15067,6 +15121,7 @@ export namespace Prisma {
     ends?: Date | string | null
     t?: string | null
     b?: string | null
+    chapterId?: string | null
     teacherId?: string | null
     subjectId: string
   }
@@ -15078,6 +15133,7 @@ export namespace Prisma {
     ends?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
     b?: NullableStringFieldUpdateOperationsInput | string | null
+    chapterId?: NullableStringFieldUpdateOperationsInput | string | null
     results?: ResultUpdateManyWithoutGroupNestedInput
     attendances?: AttendanceUpdateManyWithoutGroupNestedInput
     assignments?: AssignmentUpdateManyWithoutGroupNestedInput
@@ -15093,6 +15149,7 @@ export namespace Prisma {
     ends?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
     b?: NullableStringFieldUpdateOperationsInput | string | null
+    chapterId?: NullableStringFieldUpdateOperationsInput | string | null
     teacherId?: NullableStringFieldUpdateOperationsInput | string | null
     subjectId?: StringFieldUpdateOperationsInput | string
     results?: ResultUncheckedUpdateManyWithoutGroupNestedInput
@@ -15108,6 +15165,7 @@ export namespace Prisma {
     ends?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
     b?: NullableStringFieldUpdateOperationsInput | string | null
+    chapterId?: NullableStringFieldUpdateOperationsInput | string | null
     teacherId?: NullableStringFieldUpdateOperationsInput | string | null
     subjectId?: StringFieldUpdateOperationsInput | string
   }
@@ -15264,6 +15322,7 @@ export namespace Prisma {
     ends?: Date | string | null
     t?: string | null
     b?: string | null
+    chapterId?: string | null
     teacherId?: string | null
     studentId: string
   }
@@ -15275,6 +15334,7 @@ export namespace Prisma {
     ends?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
     b?: NullableStringFieldUpdateOperationsInput | string | null
+    chapterId?: NullableStringFieldUpdateOperationsInput | string | null
     results?: ResultUpdateManyWithoutGroupNestedInput
     attendances?: AttendanceUpdateManyWithoutGroupNestedInput
     assignments?: AssignmentUpdateManyWithoutGroupNestedInput
@@ -15290,6 +15350,7 @@ export namespace Prisma {
     ends?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
     b?: NullableStringFieldUpdateOperationsInput | string | null
+    chapterId?: NullableStringFieldUpdateOperationsInput | string | null
     teacherId?: NullableStringFieldUpdateOperationsInput | string | null
     studentId?: StringFieldUpdateOperationsInput | string
     results?: ResultUncheckedUpdateManyWithoutGroupNestedInput
@@ -15305,6 +15366,7 @@ export namespace Prisma {
     ends?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
     b?: NullableStringFieldUpdateOperationsInput | string | null
+    chapterId?: NullableStringFieldUpdateOperationsInput | string | null
     teacherId?: NullableStringFieldUpdateOperationsInput | string | null
     studentId?: StringFieldUpdateOperationsInput | string
   }

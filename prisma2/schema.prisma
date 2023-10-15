@@ -80,7 +80,7 @@ model Group {
   ends            DateTime?
   t               String?
   b               String?
-  chapterId       String?
+  chapterId       String? @unique
 
   results         Result[]
   attendances     Attendance[]

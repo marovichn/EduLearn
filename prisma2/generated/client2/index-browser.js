@@ -159,6 +159,7 @@ exports.Prisma.GroupScalarFieldEnum = {
   ends: 'ends',
   t: 't',
   b: 'b',
+  chapterId: 'chapterId',
   teacherId: 'teacherId',
   subjectId: 'subjectId',
   studentId: 'studentId'

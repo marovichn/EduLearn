@@ -10,9 +10,7 @@ import { Preview } from "@/components/preview";
 import { VideoPlayer } from "./_components/video-player";
 import { CourseEnrollButton } from "./_components/course-enroll-button";
 import { CourseProgressButton } from "./_components/course-progress-button";
-import { Button } from "@/components/ui/button";
-import { Logo } from "@/app/(dashboard)/_components/logo";
-import { MdCastForEducation } from "react-icons/md";
+import Assignment from "./_components/Assignment";
 
 const ChapterIdPage = async ({
   params,
@@ -87,30 +85,7 @@ const ChapterIdPage = async ({
             )}
           </div>
           <Separator className='mt-5' />
-          {true ? (
-            <div className='p-10 bg-gray-200'>
-              <div className='flex items-center p-0 mb-5'>
-                <MdCastForEducation className='text-black mr-4' size={40} />
-
-                <span className='self-center text-3xl font-bold whitespace-nowrap text-black'>
-                  EduGrade <span className="text-yellow-500">Student</span>
-                </span>
-              </div>
-              <h1 className='text-xl font-semibold mb-2'>Assignment?</h1>
-              <p className='mb-5'>
-                Marking lessons as assignment will add current lesson to your{" "}
-                <span className='font-semibold'>EduGrade</span>, with{" "}
-                <span className='font-semibold'>7 day</span> time period to
-                finish, each lesson is worth{" "}
-                <span className='font-semibold'>(10 points)</span>.
-              </p>
-              {true /* !isAssigned */ ? (
-                <Button>Mark this lesson as an assignment</Button>
-              ) : (
-                <Button>Mark as finished</Button>
-              )}
-            </div>
-          ) : null}
+          <Assignment chapterId={params.chapterId} />
           <Separator />
           <div>
             <Preview value={chapter.description!} />
