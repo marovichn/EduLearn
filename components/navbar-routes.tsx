@@ -9,14 +9,21 @@ import { Button } from "@/components/ui/button";
 import { isTeacher } from "@/lib/teacher";
 
 import { SearchInput } from "./search-input";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export const NavbarRoutes = () => {
   const { userId } = useAuth();
   const pathname = usePathname();
+  const [role, setRole] = useState("BASIC");
 
   const isTeacherPage = pathname?.startsWith("/teacher");
   const isCoursePage = pathname?.includes("/courses");
   const isSearchPage = pathname === "/search";
+  useEffect(() => {
+    axios.get("/api/check-role").then((role: any) => setRole(role.data.role));
+  }, []);
+  const eduTeacher = role === "Teacher";
 
   return (
     <>
@@ -37,7 +44,7 @@ export const NavbarRoutes = () => {
               Exit
             </Button>
           </Link>
-        ) : isTeacher(userId) ? (
+        ) : isTeacher(userId) || eduTeacher ? (
           <Link href='/teacher/courses'>
             <Button
               size='sm'
