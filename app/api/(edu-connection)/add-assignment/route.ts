@@ -53,7 +53,7 @@ export async function POST(req: Request) {
             {
               type: "EduLesson (self-assigned)",
               points: "10",
-              description: "Self assigned from EduLearn",
+              description: currentChapter.title,
               done: false,
               t: "Assignment",
               dateDue: new Date(date.setDate(date.getDate() + 7)),
