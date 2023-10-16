@@ -9142,6 +9142,7 @@ export namespace Prisma {
     dateDue: Date | null
     done: boolean | null
     t: string | null
+    isMissing: boolean | null
     groupId: string | null
   }
 
@@ -9154,6 +9155,7 @@ export namespace Prisma {
     dateDue: Date | null
     done: boolean | null
     t: string | null
+    isMissing: boolean | null
     groupId: string | null
   }
 
@@ -9166,6 +9168,7 @@ export namespace Prisma {
     dateDue: number
     done: number
     t: number
+    isMissing: number
     groupId: number
     _all: number
   }
@@ -9180,6 +9183,7 @@ export namespace Prisma {
     dateDue?: true
     done?: true
     t?: true
+    isMissing?: true
     groupId?: true
   }
 
@@ -9192,6 +9196,7 @@ export namespace Prisma {
     dateDue?: true
     done?: true
     t?: true
+    isMissing?: true
     groupId?: true
   }
 
@@ -9204,6 +9209,7 @@ export namespace Prisma {
     dateDue?: true
     done?: true
     t?: true
+    isMissing?: true
     groupId?: true
     _all?: true
   }
@@ -9289,6 +9295,7 @@ export namespace Prisma {
     dateDue: Date | null
     done: boolean | null
     t: string | null
+    isMissing: boolean | null
     groupId: string
     _count: AssignmentCountAggregateOutputType | null
     _min: AssignmentMinAggregateOutputType | null
@@ -9318,6 +9325,7 @@ export namespace Prisma {
     dateDue?: boolean
     done?: boolean
     t?: boolean
+    isMissing?: boolean
     groupId?: boolean
     group?: boolean | GroupDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["assignment"]>
@@ -9331,6 +9339,7 @@ export namespace Prisma {
     dateDue?: boolean
     done?: boolean
     t?: boolean
+    isMissing?: boolean
     groupId?: boolean
   }
 
@@ -9353,6 +9362,7 @@ export namespace Prisma {
       dateDue: Date | null
       done: boolean | null
       t: string | null
+      isMissing: boolean | null
       groupId: string
     }, ExtArgs["result"]["assignment"]>
     composites: {}
@@ -9784,6 +9794,7 @@ export namespace Prisma {
     readonly dateDue: FieldRef<"Assignment", 'DateTime'>
     readonly done: FieldRef<"Assignment", 'Boolean'>
     readonly t: FieldRef<"Assignment", 'String'>
+    readonly isMissing: FieldRef<"Assignment", 'Boolean'>
     readonly groupId: FieldRef<"Assignment", 'String'>
   }
     
@@ -11257,6 +11268,7 @@ export namespace Prisma {
     dateDue: 'dateDue',
     done: 'done',
     t: 't',
+    isMissing: 'isMissing',
     groupId: 'groupId'
   };
 
@@ -11974,6 +11986,7 @@ export namespace Prisma {
     dateDue?: DateTimeNullableFilter<"Assignment"> | Date | string | null
     done?: BoolNullableFilter<"Assignment"> | boolean | null
     t?: StringNullableFilter<"Assignment"> | string | null
+    isMissing?: BoolNullableFilter<"Assignment"> | boolean | null
     groupId?: StringFilter<"Assignment"> | string
     group?: XOR<GroupRelationFilter, GroupWhereInput>
   }
@@ -11987,6 +12000,7 @@ export namespace Prisma {
     dateDue?: SortOrder
     done?: SortOrder
     t?: SortOrder
+    isMissing?: SortOrder
     groupId?: SortOrder
     group?: GroupOrderByWithRelationInput
   }
@@ -12003,6 +12017,7 @@ export namespace Prisma {
     dateDue?: DateTimeNullableFilter<"Assignment"> | Date | string | null
     done?: BoolNullableFilter<"Assignment"> | boolean | null
     t?: StringNullableFilter<"Assignment"> | string | null
+    isMissing?: BoolNullableFilter<"Assignment"> | boolean | null
     groupId?: StringFilter<"Assignment"> | string
     group?: XOR<GroupRelationFilter, GroupWhereInput>
   }, "id">
@@ -12016,6 +12031,7 @@ export namespace Prisma {
     dateDue?: SortOrder
     done?: SortOrder
     t?: SortOrder
+    isMissing?: SortOrder
     groupId?: SortOrder
     _count?: AssignmentCountOrderByAggregateInput
     _max?: AssignmentMaxOrderByAggregateInput
@@ -12034,6 +12050,7 @@ export namespace Prisma {
     dateDue?: DateTimeNullableWithAggregatesFilter<"Assignment"> | Date | string | null
     done?: BoolNullableWithAggregatesFilter<"Assignment"> | boolean | null
     t?: StringNullableWithAggregatesFilter<"Assignment"> | string | null
+    isMissing?: BoolNullableWithAggregatesFilter<"Assignment"> | boolean | null
     groupId?: StringWithAggregatesFilter<"Assignment"> | string
   }
 
@@ -12758,6 +12775,7 @@ export namespace Prisma {
     dateDue?: Date | string | null
     done?: boolean | null
     t?: string | null
+    isMissing?: boolean | null
     group: GroupCreateNestedOneWithoutAssignmentsInput
   }
 
@@ -12770,6 +12788,7 @@ export namespace Prisma {
     dateDue?: Date | string | null
     done?: boolean | null
     t?: string | null
+    isMissing?: boolean | null
     groupId: string
   }
 
@@ -12781,6 +12800,7 @@ export namespace Prisma {
     dateDue?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     done?: NullableBoolFieldUpdateOperationsInput | boolean | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
+    isMissing?: NullableBoolFieldUpdateOperationsInput | boolean | null
     group?: GroupUpdateOneRequiredWithoutAssignmentsNestedInput
   }
 
@@ -12792,6 +12812,7 @@ export namespace Prisma {
     dateDue?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     done?: NullableBoolFieldUpdateOperationsInput | boolean | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
+    isMissing?: NullableBoolFieldUpdateOperationsInput | boolean | null
     groupId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -12804,6 +12825,7 @@ export namespace Prisma {
     dateDue?: Date | string | null
     done?: boolean | null
     t?: string | null
+    isMissing?: boolean | null
     groupId: string
   }
 
@@ -12815,6 +12837,7 @@ export namespace Prisma {
     dateDue?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     done?: NullableBoolFieldUpdateOperationsInput | boolean | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
+    isMissing?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type AssignmentUncheckedUpdateManyInput = {
@@ -12825,6 +12848,7 @@ export namespace Prisma {
     dateDue?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     done?: NullableBoolFieldUpdateOperationsInput | boolean | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
+    isMissing?: NullableBoolFieldUpdateOperationsInput | boolean | null
     groupId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -13411,6 +13435,7 @@ export namespace Prisma {
     dateDue?: SortOrder
     done?: SortOrder
     t?: SortOrder
+    isMissing?: SortOrder
     groupId?: SortOrder
   }
 
@@ -13423,6 +13448,7 @@ export namespace Prisma {
     dateDue?: SortOrder
     done?: SortOrder
     t?: SortOrder
+    isMissing?: SortOrder
     groupId?: SortOrder
   }
 
@@ -13435,6 +13461,7 @@ export namespace Prisma {
     dateDue?: SortOrder
     done?: SortOrder
     t?: SortOrder
+    isMissing?: SortOrder
     groupId?: SortOrder
   }
 
@@ -14283,6 +14310,7 @@ export namespace Prisma {
     dateDue?: Date | string | null
     done?: boolean | null
     t?: string | null
+    isMissing?: boolean | null
   }
 
   export type AssignmentUncheckedCreateWithoutGroupInput = {
@@ -14294,6 +14322,7 @@ export namespace Prisma {
     dateDue?: Date | string | null
     done?: boolean | null
     t?: string | null
+    isMissing?: boolean | null
   }
 
   export type AssignmentCreateOrConnectWithoutGroupInput = {
@@ -14522,6 +14551,7 @@ export namespace Prisma {
     dateDue?: DateTimeNullableFilter<"Assignment"> | Date | string | null
     done?: BoolNullableFilter<"Assignment"> | boolean | null
     t?: StringNullableFilter<"Assignment"> | string | null
+    isMissing?: BoolNullableFilter<"Assignment"> | boolean | null
     groupId?: StringFilter<"Assignment"> | string
   }
 
@@ -15198,6 +15228,7 @@ export namespace Prisma {
     dateDue?: Date | string | null
     done?: boolean | null
     t?: string | null
+    isMissing?: boolean | null
   }
 
   export type ActivityCreateManyGroupInput = {
@@ -15268,6 +15299,7 @@ export namespace Prisma {
     dateDue?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     done?: NullableBoolFieldUpdateOperationsInput | boolean | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
+    isMissing?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type AssignmentUncheckedUpdateWithoutGroupInput = {
@@ -15278,6 +15310,7 @@ export namespace Prisma {
     dateDue?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     done?: NullableBoolFieldUpdateOperationsInput | boolean | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
+    isMissing?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type AssignmentUncheckedUpdateManyWithoutGroupInput = {
@@ -15288,6 +15321,7 @@ export namespace Prisma {
     dateDue?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     done?: NullableBoolFieldUpdateOperationsInput | boolean | null
     t?: NullableStringFieldUpdateOperationsInput | string | null
+    isMissing?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type ActivityUpdateWithoutGroupInput = {

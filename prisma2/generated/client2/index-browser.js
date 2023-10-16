@@ -205,6 +205,7 @@ exports.Prisma.AssignmentScalarFieldEnum = {
   dateDue: 'dateDue',
   done: 'done',
   t: 't',
+  isMissing: 'isMissing',
   groupId: 'groupId'
 };
 
