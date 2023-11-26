@@ -1,7 +1,9 @@
-import { Category, Course } from "@prisma/client";
+import { Category } from "@prisma/client";
 
 import { getProgress } from "@/actions/get-progress";
 import { db } from "@/lib/db";
+import { checkRole } from "./checkRole";
+import { Course } from "@/prisma/generated/client1";
 
 type CourseWithProgressWithCategory = Course & {
   category: Category | null;
@@ -18,9 +20,10 @@ type GetCourses = {
 export const getCourses = async ({
   userId,
   title,
-  categoryId
+  categoryId,
 }: GetCourses): Promise<CourseWithProgressWithCategory[]> => {
   try {
+    const role = await checkRole();
     const courses = await db.course.findMany({
       where: {
         isPublished: true,
@@ -37,40 +40,46 @@ export const getCourses = async ({
           },
           select: {
             id: true,
-          }
+          },
         },
         purchases: {
           where: {
             userId,
-          }
-        }
+          },
+        },
       },
       orderBy: {
         createdAt: "desc",
-      }
+      },
     });
 
-    const coursesWithProgress: CourseWithProgressWithCategory[] = await Promise.all(
-      courses.map(async course => {
-        if (course.purchases.length === 0) {
+    const coursesWithProgress: CourseWithProgressWithCategory[] =
+      await Promise.all(
+        courses.map(async (course) => {
+          if (course.purchases.length === 0) {
+            return {
+              ...course,
+              progress: null,
+            };
+          }
+
+          const progressPercentage = await getProgress(userId, course.id);
+
           return {
             ...course,
-            progress: null,
-          }
-        }
+            progress: progressPercentage,
+          };
+        })
+      );
 
-        const progressPercentage = await getProgress(userId, course.id);
-
-        return {
-          ...course,
-          progress: progressPercentage,
-        };
-      })
-    );
-
+    if (role === "BASIC") {
+      return coursesWithProgress.filter(
+        (course) => course.eduxclusive !== true
+      );
+    }
     return coursesWithProgress;
   } catch (error) {
     console.log("[GET_COURSES]", error);
     return [];
   }
-}
+};

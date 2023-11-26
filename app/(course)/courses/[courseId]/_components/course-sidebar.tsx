@@ -39,15 +39,15 @@ export const CourseSidebar = async ({
 
   return (
     <div className='h-full border-r flex flex-col overflow-y-auto shadow-sm'>
-      <div className='p-[27px] flex border-b'>
+      <div className='p-[15px] flex border-b items-center'>
         <Link
           href='/search'
-          className='mr-4 flex bg-white text-black  border-[1px] border-black border-dashed rounded-lg p-2 hover:bg-gray-100 transition -my-[9.5px]'
+          className='mr-4 flex bg-white text-black  border-[1px] border-black border-dashed rounded-lg hover:bg-gray-100 transition -my-[9.5px] p-2 h-[38px]'
         >
           <ArrowLeft size={14} />
-          <Search />
+          <Search  size={20}/>
         </Link>
-        <h1 className='font-semibold overflow-hidden'>{course.title}</h1>
+        <h1 className='font-semibold overflow-hidden'>{course.title.slice()}</h1>
         {purchase && (
           <div className='mt-10'>
             <CourseProgress variant='success' value={progressCount} />

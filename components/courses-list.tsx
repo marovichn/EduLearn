@@ -1,6 +1,7 @@
-import { Category, Course } from "@prisma/client";
+import { Category } from "@prisma/client";
 
 import { CourseCard } from "@/components/course-card";
+import { Course } from "@/prisma/generated/client1";
 
 type CourseWithProgressWithCategory = Course & {
   category: Category | null;
@@ -28,6 +29,7 @@ export const CoursesList = ({
             price={item.price!}
             progress={item.progress}
             category={item?.category?.name!}
+            eduxclusive={item.eduxclusive}
           />
         ))}
       </div>
