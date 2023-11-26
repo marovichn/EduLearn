@@ -11,6 +11,7 @@ import { VideoPlayer } from "./_components/video-player";
 import { CourseEnrollButton } from "./_components/course-enroll-button";
 import { CourseProgressButton } from "./_components/course-progress-button";
 import Assignment from "./_components/Assignment";
+import { MdCastForEducation } from "react-icons/md";
 
 const ChapterIdPage = async ({
   params,
@@ -68,7 +69,7 @@ const ChapterIdPage = async ({
           />
         </div>
         <div>
-          <div className='p-4 flex flex-col md:flex-row items-center justify-between'>
+          <div className='p-4 flex flex-col md:flex-row items-center justify-between max-md:items-start'>
             <h2 className='text-2xl font-semibold mb-2'>{chapter.title}</h2>
             {purchase ? (
               <CourseProgressButton
@@ -81,9 +82,16 @@ const ChapterIdPage = async ({
               <CourseEnrollButton
                 courseId={params.courseId}
                 price={course.price!}
+                eduxclusive={course.eduxclusive}
               />
             )}
           </div>
+          {course.eduxclusive && (
+            <p className='text-xl p-4 md:flex-row flex flex-col md:items-center items-start gap-x-3 gap-y-1'>
+              <MdCastForEducation size={30} />
+              Exclusive for EduGrade Students (free)
+            </p>
+          )}
           <Separator className='mt-5' />
           <Assignment chapterId={params.chapterId} />
           <Separator />

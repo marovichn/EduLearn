@@ -39,21 +39,28 @@ export const CourseSidebar = async ({
 
   return (
     <div className='h-full border-r flex flex-col overflow-y-auto shadow-sm'>
-      <div className='p-[15px] flex border-b items-center'>
-        <Link
-          href='/search'
-          className='mr-4 flex bg-white text-black  border-[1px] border-black border-dashed rounded-lg hover:bg-gray-100 transition -my-[9.5px] p-2 h-[38px]'
-        >
-          <ArrowLeft size={14} />
-          <Search  size={20}/>
-        </Link>
-        <h1 className='font-semibold overflow-hidden'>{course.title.slice()}</h1>
-        {purchase && (
-          <div className='mt-10'>
-            <CourseProgress variant='success' value={progressCount} />
-          </div>
-        )}
+      <div className='p-[15px] flex border-b items-start flex-col w-full'>
+        <div className='px-[15px] pt-[15px] flex'>
+          <Link
+            href='/search'
+            className='mr-4 flex bg-white text-black  border-[1px] border-black border-dashed rounded-lg hover:bg-gray-100 transition -my-[9.5px] p-2 h-[38px]'
+          >
+            <ArrowLeft size={14} />
+            <Search size={20} />
+          </Link>
+          <h1 className='font-semibold overflow-hidden'>
+            {course.title.slice()}
+          </h1>
+        </div>
+        <div className='w-full'>
+          {purchase && (
+            <div className='mt-10 px-[15px] pb-[15px]'>
+              <CourseProgress variant='success' value={progressCount} />
+            </div>
+          )}
+        </div>
       </div>
+
       <div className='flex flex-col w-full'>
         {course.chapters.map((chapter) => (
           <CourseSidebarItem
