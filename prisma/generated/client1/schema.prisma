@@ -1,5 +1,5 @@
 datasource db {
-  provider     = "postgresql"
+  provider     = "cockroachdb"
   url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
@@ -18,6 +18,7 @@ model Course {
   imageUrl String? 
   price Float?
   isPublished Boolean @default(false)
+  eduxclusive Boolean @default(false)
 
   categoryId String?
   category Category? @relation(fields: [categoryId], references: [id])

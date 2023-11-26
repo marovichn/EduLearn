@@ -1579,6 +1579,7 @@ export namespace Prisma {
     imageUrl: string | null
     price: number | null
     isPublished: boolean | null
+    eduxclusive: boolean | null
     categoryId: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -1592,6 +1593,7 @@ export namespace Prisma {
     imageUrl: string | null
     price: number | null
     isPublished: boolean | null
+    eduxclusive: boolean | null
     categoryId: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -1605,6 +1607,7 @@ export namespace Prisma {
     imageUrl: number
     price: number
     isPublished: number
+    eduxclusive: number
     categoryId: number
     createdAt: number
     updatedAt: number
@@ -1628,6 +1631,7 @@ export namespace Prisma {
     imageUrl?: true
     price?: true
     isPublished?: true
+    eduxclusive?: true
     categoryId?: true
     createdAt?: true
     updatedAt?: true
@@ -1641,6 +1645,7 @@ export namespace Prisma {
     imageUrl?: true
     price?: true
     isPublished?: true
+    eduxclusive?: true
     categoryId?: true
     createdAt?: true
     updatedAt?: true
@@ -1654,6 +1659,7 @@ export namespace Prisma {
     imageUrl?: true
     price?: true
     isPublished?: true
+    eduxclusive?: true
     categoryId?: true
     createdAt?: true
     updatedAt?: true
@@ -1670,7 +1676,7 @@ export namespace Prisma {
      * 
      * Determine the order of Courses to fetch.
      */
-    orderBy?: CourseOrderByWithRelationAndSearchRelevanceInput | CourseOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: CourseOrderByWithRelationInput | CourseOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -1754,6 +1760,7 @@ export namespace Prisma {
     imageUrl: string | null
     price: number | null
     isPublished: boolean
+    eduxclusive: boolean
     categoryId: string | null
     createdAt: Date
     updatedAt: Date
@@ -1786,6 +1793,7 @@ export namespace Prisma {
     imageUrl?: boolean
     price?: boolean
     isPublished?: boolean
+    eduxclusive?: boolean
     categoryId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -1804,6 +1812,7 @@ export namespace Prisma {
     imageUrl?: boolean
     price?: boolean
     isPublished?: boolean
+    eduxclusive?: boolean
     categoryId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -1834,6 +1843,7 @@ export namespace Prisma {
       imageUrl: string | null
       price: number | null
       isPublished: boolean
+      eduxclusive: boolean
       categoryId: string | null
       createdAt: Date
       updatedAt: Date
@@ -2245,6 +2255,7 @@ export namespace Prisma {
     readonly imageUrl: FieldRef<"Course", 'String'>
     readonly price: FieldRef<"Course", 'Float'>
     readonly isPublished: FieldRef<"Course", 'Boolean'>
+    readonly eduxclusive: FieldRef<"Course", 'Boolean'>
     readonly categoryId: FieldRef<"Course", 'String'>
     readonly createdAt: FieldRef<"Course", 'DateTime'>
     readonly updatedAt: FieldRef<"Course", 'DateTime'>
@@ -2312,7 +2323,7 @@ export namespace Prisma {
      * 
      * Determine the order of Courses to fetch.
      */
-    orderBy?: CourseOrderByWithRelationAndSearchRelevanceInput | CourseOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: CourseOrderByWithRelationInput | CourseOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -2361,7 +2372,7 @@ export namespace Prisma {
      * 
      * Determine the order of Courses to fetch.
      */
-    orderBy?: CourseOrderByWithRelationAndSearchRelevanceInput | CourseOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: CourseOrderByWithRelationInput | CourseOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -2410,7 +2421,7 @@ export namespace Prisma {
      * 
      * Determine the order of Courses to fetch.
      */
-    orderBy?: CourseOrderByWithRelationAndSearchRelevanceInput | CourseOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: CourseOrderByWithRelationInput | CourseOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -2588,7 +2599,7 @@ export namespace Prisma {
      */
     include?: ChapterInclude<ExtArgs> | null
     where?: ChapterWhereInput
-    orderBy?: ChapterOrderByWithRelationAndSearchRelevanceInput | ChapterOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: ChapterOrderByWithRelationInput | ChapterOrderByWithRelationInput[]
     cursor?: ChapterWhereUniqueInput
     take?: number
     skip?: number
@@ -2609,7 +2620,7 @@ export namespace Prisma {
      */
     include?: AttachmentInclude<ExtArgs> | null
     where?: AttachmentWhereInput
-    orderBy?: AttachmentOrderByWithRelationAndSearchRelevanceInput | AttachmentOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: AttachmentOrderByWithRelationInput | AttachmentOrderByWithRelationInput[]
     cursor?: AttachmentWhereUniqueInput
     take?: number
     skip?: number
@@ -2630,7 +2641,7 @@ export namespace Prisma {
      */
     include?: PurchaseInclude<ExtArgs> | null
     where?: PurchaseWhereInput
-    orderBy?: PurchaseOrderByWithRelationAndSearchRelevanceInput | PurchaseOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: PurchaseOrderByWithRelationInput | PurchaseOrderByWithRelationInput[]
     cursor?: PurchaseWhereUniqueInput
     take?: number
     skip?: number
@@ -2707,7 +2718,7 @@ export namespace Prisma {
      * 
      * Determine the order of Categories to fetch.
      */
-    orderBy?: CategoryOrderByWithRelationAndSearchRelevanceInput | CategoryOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: CategoryOrderByWithRelationInput | CategoryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -3278,7 +3289,7 @@ export namespace Prisma {
      * 
      * Determine the order of Categories to fetch.
      */
-    orderBy?: CategoryOrderByWithRelationAndSearchRelevanceInput | CategoryOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: CategoryOrderByWithRelationInput | CategoryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -3327,7 +3338,7 @@ export namespace Prisma {
      * 
      * Determine the order of Categories to fetch.
      */
-    orderBy?: CategoryOrderByWithRelationAndSearchRelevanceInput | CategoryOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: CategoryOrderByWithRelationInput | CategoryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -3376,7 +3387,7 @@ export namespace Prisma {
      * 
      * Determine the order of Categories to fetch.
      */
-    orderBy?: CategoryOrderByWithRelationAndSearchRelevanceInput | CategoryOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: CategoryOrderByWithRelationInput | CategoryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -3538,7 +3549,7 @@ export namespace Prisma {
      */
     include?: CourseInclude<ExtArgs> | null
     where?: CourseWhereInput
-    orderBy?: CourseOrderByWithRelationAndSearchRelevanceInput | CourseOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: CourseOrderByWithRelationInput | CourseOrderByWithRelationInput[]
     cursor?: CourseWhereUniqueInput
     take?: number
     skip?: number
@@ -3639,7 +3650,7 @@ export namespace Prisma {
      * 
      * Determine the order of Attachments to fetch.
      */
-    orderBy?: AttachmentOrderByWithRelationAndSearchRelevanceInput | AttachmentOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: AttachmentOrderByWithRelationInput | AttachmentOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -4228,7 +4239,7 @@ export namespace Prisma {
      * 
      * Determine the order of Attachments to fetch.
      */
-    orderBy?: AttachmentOrderByWithRelationAndSearchRelevanceInput | AttachmentOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: AttachmentOrderByWithRelationInput | AttachmentOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -4277,7 +4288,7 @@ export namespace Prisma {
      * 
      * Determine the order of Attachments to fetch.
      */
-    orderBy?: AttachmentOrderByWithRelationAndSearchRelevanceInput | AttachmentOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: AttachmentOrderByWithRelationInput | AttachmentOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -4326,7 +4337,7 @@ export namespace Prisma {
      * 
      * Determine the order of Attachments to fetch.
      */
-    orderBy?: AttachmentOrderByWithRelationAndSearchRelevanceInput | AttachmentOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: AttachmentOrderByWithRelationInput | AttachmentOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -4610,7 +4621,7 @@ export namespace Prisma {
      * 
      * Determine the order of Chapters to fetch.
      */
-    orderBy?: ChapterOrderByWithRelationAndSearchRelevanceInput | ChapterOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: ChapterOrderByWithRelationInput | ChapterOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -5247,7 +5258,7 @@ export namespace Prisma {
      * 
      * Determine the order of Chapters to fetch.
      */
-    orderBy?: ChapterOrderByWithRelationAndSearchRelevanceInput | ChapterOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: ChapterOrderByWithRelationInput | ChapterOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -5296,7 +5307,7 @@ export namespace Prisma {
      * 
      * Determine the order of Chapters to fetch.
      */
-    orderBy?: ChapterOrderByWithRelationAndSearchRelevanceInput | ChapterOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: ChapterOrderByWithRelationInput | ChapterOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -5345,7 +5356,7 @@ export namespace Prisma {
      * 
      * Determine the order of Chapters to fetch.
      */
-    orderBy?: ChapterOrderByWithRelationAndSearchRelevanceInput | ChapterOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: ChapterOrderByWithRelationInput | ChapterOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -5523,7 +5534,7 @@ export namespace Prisma {
      */
     include?: UserProgressInclude<ExtArgs> | null
     where?: UserProgressWhereInput
-    orderBy?: UserProgressOrderByWithRelationAndSearchRelevanceInput | UserProgressOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: UserProgressOrderByWithRelationInput | UserProgressOrderByWithRelationInput[]
     cursor?: UserProgressWhereUniqueInput
     take?: number
     skip?: number
@@ -5612,7 +5623,7 @@ export namespace Prisma {
      * 
      * Determine the order of MuxData to fetch.
      */
-    orderBy?: MuxDataOrderByWithRelationAndSearchRelevanceInput | MuxDataOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: MuxDataOrderByWithRelationInput | MuxDataOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -6191,7 +6202,7 @@ export namespace Prisma {
      * 
      * Determine the order of MuxData to fetch.
      */
-    orderBy?: MuxDataOrderByWithRelationAndSearchRelevanceInput | MuxDataOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: MuxDataOrderByWithRelationInput | MuxDataOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -6240,7 +6251,7 @@ export namespace Prisma {
      * 
      * Determine the order of MuxData to fetch.
      */
-    orderBy?: MuxDataOrderByWithRelationAndSearchRelevanceInput | MuxDataOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: MuxDataOrderByWithRelationInput | MuxDataOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -6289,7 +6300,7 @@ export namespace Prisma {
      * 
      * Determine the order of MuxData to fetch.
      */
-    orderBy?: MuxDataOrderByWithRelationAndSearchRelevanceInput | MuxDataOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: MuxDataOrderByWithRelationInput | MuxDataOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -6531,7 +6542,7 @@ export namespace Prisma {
      * 
      * Determine the order of UserProgresses to fetch.
      */
-    orderBy?: UserProgressOrderByWithRelationAndSearchRelevanceInput | UserProgressOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: UserProgressOrderByWithRelationInput | UserProgressOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -7120,7 +7131,7 @@ export namespace Prisma {
      * 
      * Determine the order of UserProgresses to fetch.
      */
-    orderBy?: UserProgressOrderByWithRelationAndSearchRelevanceInput | UserProgressOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: UserProgressOrderByWithRelationInput | UserProgressOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -7169,7 +7180,7 @@ export namespace Prisma {
      * 
      * Determine the order of UserProgresses to fetch.
      */
-    orderBy?: UserProgressOrderByWithRelationAndSearchRelevanceInput | UserProgressOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: UserProgressOrderByWithRelationInput | UserProgressOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -7218,7 +7229,7 @@ export namespace Prisma {
      * 
      * Determine the order of UserProgresses to fetch.
      */
-    orderBy?: UserProgressOrderByWithRelationAndSearchRelevanceInput | UserProgressOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: UserProgressOrderByWithRelationInput | UserProgressOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -7454,7 +7465,7 @@ export namespace Prisma {
      * 
      * Determine the order of Purchases to fetch.
      */
-    orderBy?: PurchaseOrderByWithRelationAndSearchRelevanceInput | PurchaseOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: PurchaseOrderByWithRelationInput | PurchaseOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -8038,7 +8049,7 @@ export namespace Prisma {
      * 
      * Determine the order of Purchases to fetch.
      */
-    orderBy?: PurchaseOrderByWithRelationAndSearchRelevanceInput | PurchaseOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: PurchaseOrderByWithRelationInput | PurchaseOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -8087,7 +8098,7 @@ export namespace Prisma {
      * 
      * Determine the order of Purchases to fetch.
      */
-    orderBy?: PurchaseOrderByWithRelationAndSearchRelevanceInput | PurchaseOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: PurchaseOrderByWithRelationInput | PurchaseOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -8136,7 +8147,7 @@ export namespace Prisma {
      * 
      * Determine the order of Purchases to fetch.
      */
-    orderBy?: PurchaseOrderByWithRelationAndSearchRelevanceInput | PurchaseOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: PurchaseOrderByWithRelationInput | PurchaseOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -8372,7 +8383,7 @@ export namespace Prisma {
      * 
      * Determine the order of StripeCustomers to fetch.
      */
-    orderBy?: StripeCustomerOrderByWithRelationAndSearchRelevanceInput | StripeCustomerOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: StripeCustomerOrderByWithRelationInput | StripeCustomerOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -8936,7 +8947,7 @@ export namespace Prisma {
      * 
      * Determine the order of StripeCustomers to fetch.
      */
-    orderBy?: StripeCustomerOrderByWithRelationAndSearchRelevanceInput | StripeCustomerOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: StripeCustomerOrderByWithRelationInput | StripeCustomerOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -8981,7 +8992,7 @@ export namespace Prisma {
      * 
      * Determine the order of StripeCustomers to fetch.
      */
-    orderBy?: StripeCustomerOrderByWithRelationAndSearchRelevanceInput | StripeCustomerOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: StripeCustomerOrderByWithRelationInput | StripeCustomerOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -9026,7 +9037,7 @@ export namespace Prisma {
      * 
      * Determine the order of StripeCustomers to fetch.
      */
-    orderBy?: StripeCustomerOrderByWithRelationAndSearchRelevanceInput | StripeCustomerOrderByWithRelationAndSearchRelevanceInput[]
+    orderBy?: StripeCustomerOrderByWithRelationInput | StripeCustomerOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
@@ -9176,9 +9187,6 @@ export namespace Prisma {
    */
 
   export const TransactionIsolationLevel: {
-    ReadUncommitted: 'ReadUncommitted',
-    ReadCommitted: 'ReadCommitted',
-    RepeatableRead: 'RepeatableRead',
     Serializable: 'Serializable'
   };
 
@@ -9193,6 +9201,7 @@ export namespace Prisma {
     imageUrl: 'imageUrl',
     price: 'price',
     isPublished: 'isPublished',
+    eduxclusive: 'eduxclusive',
     categoryId: 'categoryId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -9305,84 +9314,6 @@ export namespace Prisma {
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
-  export const CourseOrderByRelevanceFieldEnum: {
-    id: 'id',
-    userId: 'userId',
-    title: 'title',
-    description: 'description',
-    imageUrl: 'imageUrl',
-    categoryId: 'categoryId'
-  };
-
-  export type CourseOrderByRelevanceFieldEnum = (typeof CourseOrderByRelevanceFieldEnum)[keyof typeof CourseOrderByRelevanceFieldEnum]
-
-
-  export const CategoryOrderByRelevanceFieldEnum: {
-    id: 'id',
-    name: 'name'
-  };
-
-  export type CategoryOrderByRelevanceFieldEnum = (typeof CategoryOrderByRelevanceFieldEnum)[keyof typeof CategoryOrderByRelevanceFieldEnum]
-
-
-  export const AttachmentOrderByRelevanceFieldEnum: {
-    id: 'id',
-    name: 'name',
-    url: 'url',
-    courseId: 'courseId'
-  };
-
-  export type AttachmentOrderByRelevanceFieldEnum = (typeof AttachmentOrderByRelevanceFieldEnum)[keyof typeof AttachmentOrderByRelevanceFieldEnum]
-
-
-  export const ChapterOrderByRelevanceFieldEnum: {
-    id: 'id',
-    title: 'title',
-    description: 'description',
-    videoUrl: 'videoUrl',
-    courseId: 'courseId'
-  };
-
-  export type ChapterOrderByRelevanceFieldEnum = (typeof ChapterOrderByRelevanceFieldEnum)[keyof typeof ChapterOrderByRelevanceFieldEnum]
-
-
-  export const MuxDataOrderByRelevanceFieldEnum: {
-    id: 'id',
-    assetId: 'assetId',
-    playbackId: 'playbackId',
-    chapterId: 'chapterId'
-  };
-
-  export type MuxDataOrderByRelevanceFieldEnum = (typeof MuxDataOrderByRelevanceFieldEnum)[keyof typeof MuxDataOrderByRelevanceFieldEnum]
-
-
-  export const UserProgressOrderByRelevanceFieldEnum: {
-    id: 'id',
-    userId: 'userId',
-    chapterId: 'chapterId'
-  };
-
-  export type UserProgressOrderByRelevanceFieldEnum = (typeof UserProgressOrderByRelevanceFieldEnum)[keyof typeof UserProgressOrderByRelevanceFieldEnum]
-
-
-  export const PurchaseOrderByRelevanceFieldEnum: {
-    id: 'id',
-    userId: 'userId',
-    courseId: 'courseId'
-  };
-
-  export type PurchaseOrderByRelevanceFieldEnum = (typeof PurchaseOrderByRelevanceFieldEnum)[keyof typeof PurchaseOrderByRelevanceFieldEnum]
-
-
-  export const StripeCustomerOrderByRelevanceFieldEnum: {
-    id: 'id',
-    userId: 'userId',
-    stripeCustomerId: 'stripeCustomerId'
-  };
-
-  export type StripeCustomerOrderByRelevanceFieldEnum = (typeof StripeCustomerOrderByRelevanceFieldEnum)[keyof typeof StripeCustomerOrderByRelevanceFieldEnum]
-
-
   /**
    * Field references 
    */
@@ -9465,6 +9396,7 @@ export namespace Prisma {
     imageUrl?: StringNullableFilter<"Course"> | string | null
     price?: FloatNullableFilter<"Course"> | number | null
     isPublished?: BoolFilter<"Course"> | boolean
+    eduxclusive?: BoolFilter<"Course"> | boolean
     categoryId?: StringNullableFilter<"Course"> | string | null
     createdAt?: DateTimeFilter<"Course"> | Date | string
     updatedAt?: DateTimeFilter<"Course"> | Date | string
@@ -9474,7 +9406,7 @@ export namespace Prisma {
     purchases?: PurchaseListRelationFilter
   }
 
-  export type CourseOrderByWithRelationAndSearchRelevanceInput = {
+  export type CourseOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
     title?: SortOrder
@@ -9482,14 +9414,14 @@ export namespace Prisma {
     imageUrl?: SortOrderInput | SortOrder
     price?: SortOrderInput | SortOrder
     isPublished?: SortOrder
+    eduxclusive?: SortOrder
     categoryId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    category?: CategoryOrderByWithRelationAndSearchRelevanceInput
+    category?: CategoryOrderByWithRelationInput
     chapters?: ChapterOrderByRelationAggregateInput
     attachments?: AttachmentOrderByRelationAggregateInput
     purchases?: PurchaseOrderByRelationAggregateInput
-    _relevance?: CourseOrderByRelevanceInput
   }
 
   export type CourseWhereUniqueInput = Prisma.AtLeast<{
@@ -9503,6 +9435,7 @@ export namespace Prisma {
     imageUrl?: StringNullableFilter<"Course"> | string | null
     price?: FloatNullableFilter<"Course"> | number | null
     isPublished?: BoolFilter<"Course"> | boolean
+    eduxclusive?: BoolFilter<"Course"> | boolean
     categoryId?: StringNullableFilter<"Course"> | string | null
     createdAt?: DateTimeFilter<"Course"> | Date | string
     updatedAt?: DateTimeFilter<"Course"> | Date | string
@@ -9520,6 +9453,7 @@ export namespace Prisma {
     imageUrl?: SortOrderInput | SortOrder
     price?: SortOrderInput | SortOrder
     isPublished?: SortOrder
+    eduxclusive?: SortOrder
     categoryId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -9541,6 +9475,7 @@ export namespace Prisma {
     imageUrl?: StringNullableWithAggregatesFilter<"Course"> | string | null
     price?: FloatNullableWithAggregatesFilter<"Course"> | number | null
     isPublished?: BoolWithAggregatesFilter<"Course"> | boolean
+    eduxclusive?: BoolWithAggregatesFilter<"Course"> | boolean
     categoryId?: StringNullableWithAggregatesFilter<"Course"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Course"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Course"> | Date | string
@@ -9555,11 +9490,10 @@ export namespace Prisma {
     courses?: CourseListRelationFilter
   }
 
-  export type CategoryOrderByWithRelationAndSearchRelevanceInput = {
+  export type CategoryOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     courses?: CourseOrderByRelationAggregateInput
-    _relevance?: CategoryOrderByRelevanceInput
   }
 
   export type CategoryWhereUniqueInput = Prisma.AtLeast<{
@@ -9600,15 +9534,14 @@ export namespace Prisma {
     course?: XOR<CourseRelationFilter, CourseWhereInput>
   }
 
-  export type AttachmentOrderByWithRelationAndSearchRelevanceInput = {
+  export type AttachmentOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     url?: SortOrder
     courseId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    course?: CourseOrderByWithRelationAndSearchRelevanceInput
-    _relevance?: AttachmentOrderByRelevanceInput
+    course?: CourseOrderByWithRelationInput
   }
 
   export type AttachmentWhereUniqueInput = Prisma.AtLeast<{
@@ -9667,7 +9600,7 @@ export namespace Prisma {
     userProgress?: UserProgressListRelationFilter
   }
 
-  export type ChapterOrderByWithRelationAndSearchRelevanceInput = {
+  export type ChapterOrderByWithRelationInput = {
     id?: SortOrder
     title?: SortOrder
     description?: SortOrderInput | SortOrder
@@ -9678,10 +9611,9 @@ export namespace Prisma {
     courseId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    muxData?: MuxDataOrderByWithRelationAndSearchRelevanceInput
-    course?: CourseOrderByWithRelationAndSearchRelevanceInput
+    muxData?: MuxDataOrderByWithRelationInput
+    course?: CourseOrderByWithRelationInput
     userProgress?: UserProgressOrderByRelationAggregateInput
-    _relevance?: ChapterOrderByRelevanceInput
   }
 
   export type ChapterWhereUniqueInput = Prisma.AtLeast<{
@@ -9748,13 +9680,12 @@ export namespace Prisma {
     chapter?: XOR<ChapterRelationFilter, ChapterWhereInput>
   }
 
-  export type MuxDataOrderByWithRelationAndSearchRelevanceInput = {
+  export type MuxDataOrderByWithRelationInput = {
     id?: SortOrder
     assetId?: SortOrder
     playbackId?: SortOrderInput | SortOrder
     chapterId?: SortOrder
-    chapter?: ChapterOrderByWithRelationAndSearchRelevanceInput
-    _relevance?: MuxDataOrderByRelevanceInput
+    chapter?: ChapterOrderByWithRelationInput
   }
 
   export type MuxDataWhereUniqueInput = Prisma.AtLeast<{
@@ -9801,15 +9732,14 @@ export namespace Prisma {
     chapter?: XOR<ChapterRelationFilter, ChapterWhereInput>
   }
 
-  export type UserProgressOrderByWithRelationAndSearchRelevanceInput = {
+  export type UserProgressOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
     chapterId?: SortOrder
     isCompleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    chapter?: ChapterOrderByWithRelationAndSearchRelevanceInput
-    _relevance?: UserProgressOrderByRelevanceInput
+    chapter?: ChapterOrderByWithRelationInput
   }
 
   export type UserProgressWhereUniqueInput = Prisma.AtLeast<{
@@ -9862,14 +9792,13 @@ export namespace Prisma {
     course?: XOR<CourseRelationFilter, CourseWhereInput>
   }
 
-  export type PurchaseOrderByWithRelationAndSearchRelevanceInput = {
+  export type PurchaseOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
     courseId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    course?: CourseOrderByWithRelationAndSearchRelevanceInput
-    _relevance?: PurchaseOrderByRelevanceInput
+    course?: CourseOrderByWithRelationInput
   }
 
   export type PurchaseWhereUniqueInput = Prisma.AtLeast<{
@@ -9918,13 +9847,12 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"StripeCustomer"> | Date | string
   }
 
-  export type StripeCustomerOrderByWithRelationAndSearchRelevanceInput = {
+  export type StripeCustomerOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
     stripeCustomerId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    _relevance?: StripeCustomerOrderByRelevanceInput
   }
 
   export type StripeCustomerWhereUniqueInput = Prisma.AtLeast<{
@@ -9968,6 +9896,7 @@ export namespace Prisma {
     imageUrl?: string | null
     price?: number | null
     isPublished?: boolean
+    eduxclusive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     category?: CategoryCreateNestedOneWithoutCoursesInput
@@ -9984,6 +9913,7 @@ export namespace Prisma {
     imageUrl?: string | null
     price?: number | null
     isPublished?: boolean
+    eduxclusive?: boolean
     categoryId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -10000,6 +9930,7 @@ export namespace Prisma {
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
+    eduxclusive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     category?: CategoryUpdateOneWithoutCoursesNestedInput
@@ -10016,6 +9947,7 @@ export namespace Prisma {
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
+    eduxclusive?: BoolFieldUpdateOperationsInput | boolean
     categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10032,6 +9964,7 @@ export namespace Prisma {
     imageUrl?: string | null
     price?: number | null
     isPublished?: boolean
+    eduxclusive?: boolean
     categoryId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -10045,6 +9978,7 @@ export namespace Prisma {
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
+    eduxclusive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -10057,6 +9991,7 @@ export namespace Prisma {
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
+    eduxclusive?: BoolFieldUpdateOperationsInput | boolean
     categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10490,7 +10425,6 @@ export namespace Prisma {
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
     gte?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     mode?: QueryMode
     not?: NestedUuidFilter<$PrismaModel> | string
   }
@@ -10506,7 +10440,6 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     mode?: QueryMode
     not?: NestedStringFilter<$PrismaModel> | string
   }
@@ -10522,7 +10455,6 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     mode?: QueryMode
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
@@ -10594,12 +10526,6 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type CourseOrderByRelevanceInput = {
-    fields: CourseOrderByRelevanceFieldEnum | CourseOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type CourseCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
@@ -10608,6 +10534,7 @@ export namespace Prisma {
     imageUrl?: SortOrder
     price?: SortOrder
     isPublished?: SortOrder
+    eduxclusive?: SortOrder
     categoryId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -10625,6 +10552,7 @@ export namespace Prisma {
     imageUrl?: SortOrder
     price?: SortOrder
     isPublished?: SortOrder
+    eduxclusive?: SortOrder
     categoryId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -10638,6 +10566,7 @@ export namespace Prisma {
     imageUrl?: SortOrder
     price?: SortOrder
     isPublished?: SortOrder
+    eduxclusive?: SortOrder
     categoryId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -10655,7 +10584,6 @@ export namespace Prisma {
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
     gte?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     mode?: QueryMode
     not?: NestedUuidWithAggregatesFilter<$PrismaModel> | string
     _count?: NestedIntFilter<$PrismaModel>
@@ -10674,7 +10602,6 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     mode?: QueryMode
     not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
     _count?: NestedIntFilter<$PrismaModel>
@@ -10693,7 +10620,6 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     mode?: QueryMode
     not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
     _count?: NestedIntNullableFilter<$PrismaModel>
@@ -10749,12 +10675,6 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type CategoryOrderByRelevanceInput = {
-    fields: CategoryOrderByRelevanceFieldEnum | CategoryOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type CategoryCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -10773,12 +10693,6 @@ export namespace Prisma {
   export type CourseRelationFilter = {
     is?: CourseWhereInput
     isNot?: CourseWhereInput
-  }
-
-  export type AttachmentOrderByRelevanceInput = {
-    fields: AttachmentOrderByRelevanceFieldEnum | AttachmentOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
   }
 
   export type AttachmentCountOrderByAggregateInput = {
@@ -10832,12 +10746,6 @@ export namespace Prisma {
 
   export type UserProgressOrderByRelationAggregateInput = {
     _count?: SortOrder
-  }
-
-  export type ChapterOrderByRelevanceInput = {
-    fields: ChapterOrderByRelevanceFieldEnum | ChapterOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
   }
 
   export type ChapterCountOrderByAggregateInput = {
@@ -10908,12 +10816,6 @@ export namespace Prisma {
     isNot?: ChapterWhereInput
   }
 
-  export type MuxDataOrderByRelevanceInput = {
-    fields: MuxDataOrderByRelevanceFieldEnum | MuxDataOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type MuxDataCountOrderByAggregateInput = {
     id?: SortOrder
     assetId?: SortOrder
@@ -10933,12 +10835,6 @@ export namespace Prisma {
     assetId?: SortOrder
     playbackId?: SortOrder
     chapterId?: SortOrder
-  }
-
-  export type UserProgressOrderByRelevanceInput = {
-    fields: UserProgressOrderByRelevanceFieldEnum | UserProgressOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
   }
 
   export type UserProgressUserIdChapterIdCompoundUniqueInput = {
@@ -10973,12 +10869,6 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type PurchaseOrderByRelevanceInput = {
-    fields: PurchaseOrderByRelevanceFieldEnum | PurchaseOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
   export type PurchaseUserIdCourseIdCompoundUniqueInput = {
     userId: string
     courseId: string
@@ -11006,12 +10896,6 @@ export namespace Prisma {
     courseId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-  }
-
-  export type StripeCustomerOrderByRelevanceInput = {
-    fields: StripeCustomerOrderByRelevanceFieldEnum | StripeCustomerOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
   }
 
   export type StripeCustomerCountOrderByAggregateInput = {
@@ -11406,7 +11290,6 @@ export namespace Prisma {
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
     gte?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     not?: NestedUuidFilter<$PrismaModel> | string
   }
 
@@ -11421,7 +11304,6 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
@@ -11436,7 +11318,6 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
@@ -11475,7 +11356,6 @@ export namespace Prisma {
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
     gte?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     not?: NestedUuidWithAggregatesFilter<$PrismaModel> | string
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
@@ -11504,7 +11384,6 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
@@ -11522,7 +11401,6 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
@@ -11824,6 +11702,7 @@ export namespace Prisma {
     imageUrl?: string | null
     price?: number | null
     isPublished?: boolean
+    eduxclusive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     chapters?: ChapterCreateNestedManyWithoutCourseInput
@@ -11839,6 +11718,7 @@ export namespace Prisma {
     imageUrl?: string | null
     price?: number | null
     isPublished?: boolean
+    eduxclusive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     chapters?: ChapterUncheckedCreateNestedManyWithoutCourseInput
@@ -11883,6 +11763,7 @@ export namespace Prisma {
     imageUrl?: StringNullableFilter<"Course"> | string | null
     price?: FloatNullableFilter<"Course"> | number | null
     isPublished?: BoolFilter<"Course"> | boolean
+    eduxclusive?: BoolFilter<"Course"> | boolean
     categoryId?: StringNullableFilter<"Course"> | string | null
     createdAt?: DateTimeFilter<"Course"> | Date | string
     updatedAt?: DateTimeFilter<"Course"> | Date | string
@@ -11896,6 +11777,7 @@ export namespace Prisma {
     imageUrl?: string | null
     price?: number | null
     isPublished?: boolean
+    eduxclusive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     category?: CategoryCreateNestedOneWithoutCoursesInput
@@ -11911,6 +11793,7 @@ export namespace Prisma {
     imageUrl?: string | null
     price?: number | null
     isPublished?: boolean
+    eduxclusive?: boolean
     categoryId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -11942,6 +11825,7 @@ export namespace Prisma {
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
+    eduxclusive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     category?: CategoryUpdateOneWithoutCoursesNestedInput
@@ -11957,6 +11841,7 @@ export namespace Prisma {
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
+    eduxclusive?: BoolFieldUpdateOperationsInput | boolean
     categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11989,6 +11874,7 @@ export namespace Prisma {
     imageUrl?: string | null
     price?: number | null
     isPublished?: boolean
+    eduxclusive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     category?: CategoryCreateNestedOneWithoutCoursesInput
@@ -12004,6 +11890,7 @@ export namespace Prisma {
     imageUrl?: string | null
     price?: number | null
     isPublished?: boolean
+    eduxclusive?: boolean
     categoryId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -12084,6 +11971,7 @@ export namespace Prisma {
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
+    eduxclusive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     category?: CategoryUpdateOneWithoutCoursesNestedInput
@@ -12099,6 +11987,7 @@ export namespace Prisma {
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
+    eduxclusive?: BoolFieldUpdateOperationsInput | boolean
     categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12286,6 +12175,7 @@ export namespace Prisma {
     imageUrl?: string | null
     price?: number | null
     isPublished?: boolean
+    eduxclusive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     category?: CategoryCreateNestedOneWithoutCoursesInput
@@ -12301,6 +12191,7 @@ export namespace Prisma {
     imageUrl?: string | null
     price?: number | null
     isPublished?: boolean
+    eduxclusive?: boolean
     categoryId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -12332,6 +12223,7 @@ export namespace Prisma {
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
+    eduxclusive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     category?: CategoryUpdateOneWithoutCoursesNestedInput
@@ -12347,6 +12239,7 @@ export namespace Prisma {
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
+    eduxclusive?: BoolFieldUpdateOperationsInput | boolean
     categoryId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12474,6 +12367,7 @@ export namespace Prisma {
     imageUrl?: string | null
     price?: number | null
     isPublished?: boolean
+    eduxclusive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -12486,6 +12380,7 @@ export namespace Prisma {
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
+    eduxclusive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     chapters?: ChapterUpdateManyWithoutCourseNestedInput
@@ -12501,6 +12396,7 @@ export namespace Prisma {
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
+    eduxclusive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     chapters?: ChapterUncheckedUpdateManyWithoutCourseNestedInput
@@ -12516,6 +12412,7 @@ export namespace Prisma {
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     isPublished?: BoolFieldUpdateOperationsInput | boolean
+    eduxclusive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

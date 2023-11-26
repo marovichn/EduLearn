@@ -101,9 +101,6 @@ Prisma.NullTypes = {
  */
 
 exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
-  ReadUncommitted: 'ReadUncommitted',
-  ReadCommitted: 'ReadCommitted',
-  RepeatableRead: 'RepeatableRead',
   Serializable: 'Serializable'
 });
 
@@ -115,6 +112,7 @@ exports.Prisma.CourseScalarFieldEnum = {
   imageUrl: 'imageUrl',
   price: 'price',
   isPublished: 'isPublished',
+  eduxclusive: 'eduxclusive',
   categoryId: 'categoryId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -192,60 +190,6 @@ exports.Prisma.QueryMode = {
 exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
-};
-
-exports.Prisma.CourseOrderByRelevanceFieldEnum = {
-  id: 'id',
-  userId: 'userId',
-  title: 'title',
-  description: 'description',
-  imageUrl: 'imageUrl',
-  categoryId: 'categoryId'
-};
-
-exports.Prisma.CategoryOrderByRelevanceFieldEnum = {
-  id: 'id',
-  name: 'name'
-};
-
-exports.Prisma.AttachmentOrderByRelevanceFieldEnum = {
-  id: 'id',
-  name: 'name',
-  url: 'url',
-  courseId: 'courseId'
-};
-
-exports.Prisma.ChapterOrderByRelevanceFieldEnum = {
-  id: 'id',
-  title: 'title',
-  description: 'description',
-  videoUrl: 'videoUrl',
-  courseId: 'courseId'
-};
-
-exports.Prisma.MuxDataOrderByRelevanceFieldEnum = {
-  id: 'id',
-  assetId: 'assetId',
-  playbackId: 'playbackId',
-  chapterId: 'chapterId'
-};
-
-exports.Prisma.UserProgressOrderByRelevanceFieldEnum = {
-  id: 'id',
-  userId: 'userId',
-  chapterId: 'chapterId'
-};
-
-exports.Prisma.PurchaseOrderByRelevanceFieldEnum = {
-  id: 'id',
-  userId: 'userId',
-  courseId: 'courseId'
-};
-
-exports.Prisma.StripeCustomerOrderByRelevanceFieldEnum = {
-  id: 'id',
-  userId: 'userId',
-  stripeCustomerId: 'stripeCustomerId'
 };
 
 
