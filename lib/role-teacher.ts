@@ -7,6 +7,6 @@ export const isRoleTeacher = async (): Promise<string> => {
     return role;
   } catch (error) {
     console.error("Error in isRoleTeacher:", error);
-    throw error; // You may handle the error according to your needs
+    throw error; 
   }
 };
