@@ -1,4 +1,4 @@
-import { Chapter, Course, UserProgress } from "@/prisma/generated/client1";
+import { Chapter, Course, UserProgress } from "@prisma/client";
 
 import { NavbarRoutes } from "@/components/navbar-routes";
 

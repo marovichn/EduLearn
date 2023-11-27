@@ -5,7 +5,7 @@ import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { Course } from "@/prisma/generated/client1";
+import { Course } from "@prisma/client";
 import { AlertTriangle } from "lucide-react";
 
 interface EduxclusiveFormProps {

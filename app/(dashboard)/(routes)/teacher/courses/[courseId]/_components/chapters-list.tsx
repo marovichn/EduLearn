@@ -1,6 +1,6 @@
 "use client";
 
-import { Chapter } from "@/prisma/generated/client1";
+import { Chapter } from "@prisma/client";
 import { useEffect, useState } from "react";
 import {
   DragDropContext,

@@ -2,7 +2,7 @@
 import { getProgress } from "@/actions/get-progress";
 import { db } from "@/lib/db";
 import { checkRole } from "./checkRole";
-import { Category, Course } from "@/prisma/generated/client1";
+import { Category, Course } from "@prisma/client";
 
 type CourseWithProgressWithCategory = Course & {
   category: Category | null;

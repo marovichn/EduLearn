@@ -1,6 +1,6 @@
 "use client"
 
-import { Course } from "@/prisma/generated/client1";
+import { Course } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table"
 import { ArrowUpDown, MoreHorizontal, Pencil } from "lucide-react"
 import Link from "next/link";

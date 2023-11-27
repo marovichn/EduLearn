@@ -7,7 +7,7 @@ import { Pencil, PlusCircle, Video } from "lucide-react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { Chapter, MuxData } from "@/prisma/generated/client1";
+import { Chapter, MuxData } from "@prisma/client";
 
 
 import { Button } from "@/components/ui/button";
