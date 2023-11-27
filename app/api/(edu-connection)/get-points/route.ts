@@ -2,8 +2,11 @@ import { db } from "@/lib/db";
 import { auth, clerkClient } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
+async function handleUnauthorized(): Promise<NextResponse> {
+  return new NextResponse("Not Authorized for this action!", { status: 403 });
+}
+
 export async function GET() {
-  //used only in student
   try {
     const { userId } = auth();
     if (!userId) {
@@ -15,23 +18,18 @@ export async function GET() {
     const student = await db.student.findFirst({
       where: { email: email },
     });
+
     if (!student) {
-      return new NextResponse("Not Authorized for this action!", {
-        status: 401,
-      });
+      return await handleUnauthorized();
     }
+
     const studentId = student?.id;
+
     // Fetch all groups and their assignments
     const groups = await db.group.findMany({
-      where: {
-        studentId: studentId,
-      },
+      where: { studentId: studentId },
       include: {
-        assignments: {
-          where: {
-            done: true,
-          },
-        },
+        assignments: { where: { done: true } },
       },
     });
 
@@ -50,6 +48,7 @@ export async function GET() {
     return NextResponse.json(totalPoints);
   } catch (error) {
     console.error("Error:", error);
+    return new NextResponse("Internal Server Error", { status: 500 });
   } finally {
     // Close the Prisma Client connection
     await db.$disconnect();
