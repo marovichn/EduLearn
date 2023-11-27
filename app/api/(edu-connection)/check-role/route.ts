@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { clerkClient } from "@clerk/nextjs";
 import { db } from "@/lib/db";
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
     const { userId } = auth();
 
