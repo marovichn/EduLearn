@@ -8,20 +8,22 @@ export async function GET(request: Request) {
     const { userId } = auth();
 
     if (!userId) {
-      return new NextResponse("Unauthorized", {
+      const response = new NextResponse("Unauthorized", {
         status: 401,
         headers: { "content-type": "application/json" },
       });
+      return response;
     }
 
     const user = await clerkClient.users.getUser(userId);
     const email = user.emailAddresses[0]?.emailAddress;
 
     if (!email) {
-      return new NextResponse("Unauthorized", {
+      const response = new NextResponse("Unauthorized", {
         status: 401,
         headers: { "content-type": "application/json" },
       });
+      return response;
     }
 
     const teacher = await db.teacher.findFirst({
@@ -33,23 +35,30 @@ export async function GET(request: Request) {
         where: { email: email },
       });
       if (!student) {
-        return new NextResponse(JSON.stringify({ role: "BASIC" }), {
+        const response = new NextResponse(JSON.stringify({ role: "BASIC" }), {
           headers: { "content-type": "application/json" },
         });
+        return response;
       }
-      return new NextResponse(JSON.stringify({ role: student.role }), {
-        headers: { "content-type": "application/json" },
-      });
+      const response = new NextResponse(
+        JSON.stringify({ role: student.role }),
+        {
+          headers: { "content-type": "application/json" },
+        }
+      );
+      return response;
     }
 
-    return new NextResponse(JSON.stringify({ role: teacher.role }), {
+    const response = new NextResponse(JSON.stringify({ role: teacher.role }), {
       headers: { "content-type": "application/json" },
     });
+    return response;
   } catch (error) {
     console.error("[CHECK_ROLE_ERROR]", error);
-    return new NextResponse("Internal Error", {
+    const response = new NextResponse("Internal Error", {
       status: 500,
       headers: { "content-type": "application/json" },
     });
+    return response;
   }
 }
