@@ -1,5 +1,5 @@
 import { Menu } from "lucide-react";
-import { Chapter, Course, UserProgress } from "@prisma/client";
+import { Chapter, Course, UserProgress } from "@/prisma/generated/client1";
 
 import {
   Sheet,

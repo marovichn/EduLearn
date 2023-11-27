@@ -1,5 +1,5 @@
 import { auth } from "@clerk/nextjs";
-import { Chapter, Course, UserProgress } from "@prisma/client";
+import { Chapter, Course, UserProgress } from "@/prisma/generated/client1";
 import { redirect } from "next/navigation";
 
 import { db } from "@/lib/db";
