@@ -29,7 +29,7 @@ const Assignment: FC<AssignmentProps> = ({ chapterId }) => {
           .catch((err) => console.log(err));
       }
     });
-  }, []);
+  }, [chapterId]);
 
   const handleAdding = async () => {
     setLoading(true);
