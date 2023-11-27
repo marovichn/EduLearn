@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { CheckCheck } from "lucide-react";
-import { useRouter } from "next/navigation";
 import { FC, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { MdCastForEducation } from "react-icons/md";

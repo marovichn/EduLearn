@@ -1,4 +1,5 @@
 import { auth } from "@clerk/nextjs";
+
 import { NextResponse } from "next/server";
 import { clerkClient } from "@clerk/nextjs";
 
@@ -13,7 +14,7 @@ export async function GET() {
     }
 
     const user = await clerkClient.users.getUser(userId);
-    const email = user.emailAddresses[0].emailAddress;
+    const email = user.emailAddresses[0]?.emailAddress;
 
     if (!email) {
       return new NextResponse("Unauthorized", { status: 401 });
@@ -22,6 +23,7 @@ export async function GET() {
     const teacher = await db.teacher.findFirst({
       where: { email: email },
     });
+
     if (!teacher) {
       const student = await db.student.findFirst({
         where: { email: email },
@@ -34,7 +36,7 @@ export async function GET() {
 
     return NextResponse.json({ role: teacher.role });
   } catch (error) {
-    console.log("[CHECK_ROLE_ERROR]", error);
+    console.error("[CHECK_ROLE_ERROR]", error);
     return new NextResponse("Internal Error", { status: 500 });
   }
 }
