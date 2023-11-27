@@ -16,18 +16,20 @@ const Assignment: FC<AssignmentProps> = ({ chapterId }) => {
   const [role, setRole] = useState("BASIC");
   const [isAssigned, setIsAssigned] = useState(false);
   const [done, setDone] = useState(false);
+  
   useEffect(() => {
-    axios.get("/api/check-role").then((role: any) => setRole(role.data.role));
+    const setData = async () => {
+      const role = await axios.get("/api/check-role");
+      setRole(role.data.role);
 
-    axios.post("/api/is-assigned", { chapterId }).then((isAssigned: any) => {
+      const isAssigned = await axios.post("/api/is-assigned", { chapterId });
       setIsAssigned(isAssigned.data);
       if (isAssigned.data) {
-        axios
-          .post("/api/is-done", { chapterId })
-          .then((done: any) => setDone(done.data))
-          .catch((err) => console.log(err));
+        const done = await axios.post("/api/is-done", { chapterId });
+        setDone(done.data);
       }
-    });
+    };
+    setData();
   }, [chapterId]);
 
   const handleAdding = async () => {
@@ -43,6 +45,7 @@ const Assignment: FC<AssignmentProps> = ({ chapterId }) => {
       })
       .catch((err) => toast.error(err.message));
   };
+
   const handleFinishing = async () => {
     setLoading(true);
     axios

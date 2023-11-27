@@ -10,7 +10,6 @@ export async function GET(request: Request) {
     if (!userId) {
       return new NextResponse("Unauthorized", {
         status: 401,
-        headers: { "content-type": "application/json" },
       });
     }
 
@@ -20,7 +19,6 @@ export async function GET(request: Request) {
     if (!email) {
       return new NextResponse("Unauthorized", {
         status: 401,
-        headers: { "content-type": "application/json" },
       });
     }
 
@@ -33,23 +31,16 @@ export async function GET(request: Request) {
         where: { email: email },
       });
       if (!student) {
-        return new NextResponse(JSON.stringify({ role: "BASIC" }), {
-          headers: { "content-type": "application/json" },
-        });
+        return new NextResponse(JSON.stringify({ role: "BASIC" }), {});
       }
-      return new NextResponse(JSON.stringify({ role: student.role }), {
-        headers: { "content-type": "application/json" },
-      });
+      return new NextResponse(JSON.stringify({ role: student.role }), {});
     }
 
-    return new NextResponse(JSON.stringify({ role: teacher.role }), {
-      headers: { "content-type": "application/json" },
-    });
+    return new NextResponse(JSON.stringify({ role: teacher.role }), {});
   } catch (error) {
     console.error("[CHECK_ROLE_ERROR]", error);
     return new NextResponse("Internal Error", {
       status: 500,
-      headers: { "content-type": "application/json" },
     });
   }
 }
