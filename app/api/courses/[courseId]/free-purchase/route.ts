@@ -1,7 +1,7 @@
 import { currentUser } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
-import { db, gradedb } from "@/lib/db";
+import { db, db } from "@/lib/db";
 
 export async function POST(
   req: Request,
@@ -15,7 +15,7 @@ export async function POST(
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    const teacher = await gradedb.teacher.findFirst({
+    const teacher = await db.teacher.findFirst({
       where: { email: email },
     });
     
@@ -36,7 +36,7 @@ export async function POST(
     }
    
     if (!teacher) {
-      const student = await gradedb.student.findFirst({
+      const student = await db.student.findFirst({
         where: { email: email },
       });
       if (!student) {

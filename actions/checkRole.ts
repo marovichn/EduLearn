@@ -1,7 +1,7 @@
 import { auth } from "@clerk/nextjs";
 import { clerkClient } from "@clerk/nextjs";
 
-import { gradedb } from "@/lib/db";
+import { db } from "@/lib/db";
 
 export const checkRole=async()=> {
   try {
@@ -18,11 +18,11 @@ export const checkRole=async()=> {
       return;
     }
 
-    const teacher = await gradedb.teacher.findFirst({
+    const teacher = await db.teacher.findFirst({
       where: { email: email },
     });
     if (!teacher) {
-      const student = await gradedb.student.findFirst({
+      const student = await db.student.findFirst({
         where: { email: email },
       });
       if (!student) {

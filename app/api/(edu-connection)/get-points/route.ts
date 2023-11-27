@@ -1,4 +1,4 @@
-import { gradedb } from "@/lib/db";
+import { db } from "@/lib/db";
 import { auth, clerkClient } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
@@ -12,7 +12,7 @@ export async function GET() {
 
     const user = await clerkClient.users.getUser(userId);
     const email = user.emailAddresses[0].emailAddress;
-    const student = await gradedb.student.findFirst({
+    const student = await db.student.findFirst({
       where: { email: email },
     });
     if (!student) {
@@ -22,7 +22,7 @@ export async function GET() {
     }
     const studentId = student?.id;
     // Fetch all groups and their assignments
-    const groups = await gradedb.group.findMany({
+    const groups = await db.group.findMany({
       where: {
         studentId: studentId,
       },
@@ -52,6 +52,6 @@ export async function GET() {
     console.error("Error:", error);
   } finally {
     // Close the Prisma Client connection
-    await gradedb.$disconnect();
+    await db.$disconnect();
   }
 }

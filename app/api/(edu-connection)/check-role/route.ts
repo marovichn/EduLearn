@@ -2,7 +2,7 @@ import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import { clerkClient } from "@clerk/nextjs";
 
-import { gradedb } from "@/lib/db";
+import { db } from "@/lib/db";
 
 export async function GET() {
   try {
@@ -19,11 +19,11 @@ export async function GET() {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    const teacher = await gradedb.teacher.findFirst({
+    const teacher = await db.teacher.findFirst({
       where: { email: email },
     });
     if (!teacher) {
-      const student = await gradedb.student.findFirst({
+      const student = await db.student.findFirst({
         where: { email: email },
       });
       if (!student) {

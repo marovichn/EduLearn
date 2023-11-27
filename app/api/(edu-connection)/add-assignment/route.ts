@@ -1,7 +1,7 @@
 import { auth, clerkClient } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
-import { db, gradedb } from "@/lib/db";
+import { db, db } from "@/lib/db";
 
 export async function POST(req: Request) {
   try {
@@ -17,7 +17,7 @@ export async function POST(req: Request) {
     /*Find student Grade Data*/
     const user = await clerkClient.users.getUser(userId);
     const email = user.emailAddresses[0].emailAddress;
-    const student = await gradedb.student.findFirst({
+    const student = await db.student.findFirst({
       where: { email: email },
     });
 
@@ -41,7 +41,7 @@ export async function POST(req: Request) {
     const subjectId = process.env.NEXT_PUBLIC_EDU_CONNECTION_SUBJECT_ID!;
     const date = new Date();
 
-    await gradedb.group.create({
+    await db.group.create({
       data: {
         name: currentChapter.title,
         description: "Edulearn Chapter Lesson",

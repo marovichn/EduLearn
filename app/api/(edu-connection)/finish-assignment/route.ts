@@ -1,7 +1,7 @@
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
-import { gradedb } from "@/lib/db";
+import { db } from "@/lib/db";
 
 export async function POST(req: Request) {
   try {
@@ -15,7 +15,7 @@ export async function POST(req: Request) {
       return new NextResponse("Invalid payload", { status: 400 });
     }
 
-    const assignedChapterGroup = await gradedb.group.findFirst({
+    const assignedChapterGroup = await db.group.findFirst({
       where: {
         chapterId: chapterId,
       },
@@ -28,7 +28,7 @@ export async function POST(req: Request) {
       return new NextResponse("Invalid request", { status: 400 });
     }
 
-    await gradedb.assignment.update({
+    await db.assignment.update({
       where: {
         id: assignedChapterGroup.assignments[0].id,
       },

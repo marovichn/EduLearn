@@ -7,8 +7,6 @@ datasource db {
 generator client {
   provider = "prisma-client-js"
   previewFeatures = ["fullTextSearch", "fullTextIndex"]
-  binaryTargets = ["rhel-openssl-1.0.x","native"]
-  output = "./generated/client1"
 }
 
 model Course {
@@ -122,4 +120,166 @@ model StripeCustomer {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+
+model Admin {
+  id              String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name            String?
+  lastname        String?
+  email           String?   @unique
+  emailVerified   DateTime?
+  image           String?
+  hashedPassword  String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  role            String?
+  code            String? @unique
+}
+
+
+model Teacher {
+  id              String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name            String?
+  lastname        String?
+  email           String?   @unique
+  emailVerified   DateTime?
+  image           String?
+  hashedPassword  String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  role            String?
+  biography     String?
+  degrees       String?
+  experience    String?
+  code          String? @unique
+
+  groups Group[]
+}
+
+
+model Student {
+  id              String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name            String?
+  lastname        String?
+  adress          String?
+  parentName      String?
+  parentEmail     String?
+  parentPhone     String?
+  email           String?   @unique
+  emailVerified   DateTime?
+  image           String?
+  hashedPassword  String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  role            String?
+  biography       String?
+  code            String? @unique
+  points          String?
+
+  groups Group[]
+}
+
+
+model Group {
+  id              String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+
+  name            String
+  description     String
+  createdAt       DateTime @default(now())
+  ends            DateTime?
+  t               String?
+  b               String?
+  chapterId       String? @unique
+
+  results         Result[]
+  attendances     Attendance[]
+  assignments     Assignment[]
+  activityGrades  Activity[]
+
+  teacher Teacher?  @relation(fields: [teacherId], references: [id])
+  teacherId String? @db.Uuid
+
+  subject Subject @relation(fields: [subjectId], references: [id])
+  subjectId String @db.Uuid
+
+  student Student @relation(fields: [studentId], references: [id])
+  studentId String @db.Uuid
+
+  @@index([teacherId])
+  @@index([subjectId])
+  @@index([studentId])
+}
+
+
+model Result{
+id              String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+type            String
+value           String
+description     String?
+date            DateTime? @default(now())
+t               String?
+
+group           Group  @relation(fields: [groupId], references: [id])
+groupId         String @db.Uuid
+
+  @@index([groupId])
+}
+
+
+model Activity{
+id              String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+type            String
+value           String
+description     String?
+date            DateTime? @default(now())
+t               String?
+
+group           Group  @relation(fields: [groupId], references: [id])
+groupId         String @db.Uuid
+
+ @@index([groupId])
+}
+
+
+model Attendance{
+id              String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+type            String
+description     String?
+date            DateTime?
+numberOfClasses Int
+classes         String[]
+t               String?
+
+group           Group  @relation(fields: [groupId], references: [id])
+groupId         String @db.Uuid
+
+ @@index([groupId])
+}
+
+
+model Assignment{
+id              String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+type            String
+points          String
+description     String?
+dateStart       DateTime @default(now())
+dateDue         DateTime?
+done            Boolean?
+t               String?
+isMissing       Boolean?
+
+group           Group  @relation(fields: [groupId], references: [id])
+groupId         String  @db.Uuid
+
+ @@index([groupId])
+}
+
+model Subject{
+  id              String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name String
+  description String?
+  color        String?
+
+  groups  Group[]
 }
